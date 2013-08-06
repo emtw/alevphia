@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Funeral pref:</b>
+  <%= @funeral.funeral_pref %>
+</p>
+
+<p>
+  <b>Casket pref:</b>
+  <%= @funeral.casket_pref %>
+</p>
+
+<p>
+  <b>Other pref:</b>
+  <%= @funeral.other_pref %>
+</p>
+
+<p>
+  <b>Service location:</b>
+  <%= @funeral.service_location %>
+</p>
+
+<p>
+  <b>Burial location:</b>
+  <%= @funeral.burial_location %>
+</p>
+
+<p>
+  <b>Ashes location:</b>
+  <%= @funeral.ashes_location %>
+</p>
+
+<p>
+  <b>Songs pref:</b>
+  <%= @funeral.songs_pref %>
+</p>
+
+<p>
+  <b>Readings:</b>
+  <%= @funeral.readings %>
+</p>
+
+<p>
+  <b>Speakers:</b>
+  <%= @funeral.speakers %>
+</p>
+
+<p>
+  <b>Final words:</b>
+  <%= @funeral.final_words %>
+</p>
+
+<p>
+  <b>Dress code:</b>
+  <%= @funeral.dress_code %>
+</p>
+
+<p>
+  <b>Flowers:</b>
+  <%= @funeral.flowers %>
+</p>
+
+<p>
+  <b>Donations to:</b>
+  <%= @funeral.donations_to %>
+</p>
+
+<p>
+  <b>Wake:</b>
+  <%= @funeral.wake %>
+</p>
+
+<p>
+  <b>Epitaph:</b>
+  <%= @funeral.epitaph %>
+</p>
+
+<p>
+  <b>Additional reqs:</b>
+  <%= @funeral.additional_reqs %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_funeral_path(@funeral) %> |
+<%= link_to 'Back', funerals_path %>

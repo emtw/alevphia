@@ -1,0 +1,43 @@
+<h1>Listing guests</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>User</th>
+    <th>Username</th>
+    <th>Guest</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @guests.each do |guest| %>
+  <tr>
+    <td><%= guest.name %></td>
+    <td><%= guest.user_id %></td>
+    <td><%= guest.username %></td>
+    <td><%= guest.guest %></td>
+    <td><% if current_user || current_keyholder || current_guest %>
+        		<% if can? :read, guest %>
+		        	<%= link_to 'Show', guest %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :update, guest %>
+		        	<%= link_to 'Edit', edit_guest_path(guest) %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :destroy, guest %>
+		        	<%= link_to 'Destroy', guest, method: :delete, data: { confirm: 'Are you sure?' } %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		     <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Guest', new_guest_path %>

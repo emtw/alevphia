@@ -1,0 +1,84 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = "Access denied."
+    if user_signed_in?
+      redirect_to :controller => 'users', :id => current_user.id, :action => 'myaccount'
+    elsif keyholder_signed_in?
+      redirect_to :controller => 'keyholders', :id => current_keyholder.id, :action => 'myaccount'
+    elsif guest_signed_in?
+      redirect_to :controller => 'guests', :id => current_guest.id, :action => 'myaccount'
+    else
+    redirect_to root_url
+    end
+  end 
+  
+  def current_ability
+    if current_user && current_user.user?
+      @current_ability ||= Ability.new(current_user)
+    elsif current_keyholder && current_keyholder.keyholder?
+      @current_ability ||= Ability.new(current_keyholder)
+    elsif current_guest && current_guest.guest?
+      @current_ability ||= Ability.new(current_guest)
+    else
+      flash[:notice] = "Current Ability error"
+    end
+  end
+  
+  protected
+  
+  def after_sign_up_path_for(resource)
+    url_for :controller => "/#{resource_name}s", :id => resource.id, :action => 'myaccount'
+  end
+  
+  def after_sign_in_path_for(resource)
+    url_for :controller => "/#{resource_name}s", :id => resource.id, :action => 'myaccount'
+  end    
+  
+  def after_update_path_for(resource)
+    url_for :controller => "/#{resource_name}s", :id => resource.id, :action => 'myaccount'
+  end
+  
+  def authorize
+    if user_signed_in?
+    @user = User.find(params[:id])
+      unless @user.id==current_user.id
+        redirect_to root_url, notice: "Access denied. Please log in to view this account."
+      end
+    else
+      redirect_to root_url, notice: "Access denied. Please login to view this account."
+    end
+    
+  end
+  
+  def authorize_keyholder
+    if keyholder_signed_in?
+    @keyholder = Keyholder.find(params[:id])
+      unless @keyholder.id==current_keyholder.id
+        redirect_to root_url, notice: "Access denied. Please log in to view this account."
+      end
+    elsif user_signed_in?
+      redirect_to :controller => 'users', :id => current_user.id, :action => 'myaccount'
+    else
+      redirect_to root_url, notice: "Access denied. Please login to view this account."
+    end
+  end
+  
+  def authorize_guest
+    if guest_signed_in?
+    @guest = Guest.find(params[:id])
+      unless @guest.id==current_guest.id
+        redirect_to root_url, notice: "Please log in to view this account."
+      end
+    elsif keyholder_signed_in?
+      redirect_to :controller => 'keyholders', :id => current_keyholder.id, :action => 'myaccount'
+    elsif user_signed_in?
+      redirect_to :controller => 'users', :id => current_user.id, :action => 'myaccount'
+    else
+      redirect_to root_url, notice: "Access denied. Please login to view this account."
+    end
+  end
+
+  
+end

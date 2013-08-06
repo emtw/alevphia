@@ -1,0 +1,49 @@
+<h1>Listing keyholders</h1>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>User</th>
+    <th>House</th>
+    <th>Postcode</th>
+    <th>Keyholder</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @keyholders.each do |keyholder| %>
+  <tr>
+    <td><%= keyholder.username %></td>
+    <td><%= keyholder.first_name %></td>
+    <td><%= keyholder.last_name %></td>
+    <td><%= keyholder.user_id %></td>
+    <td><%= keyholder.house %></td>
+    <td><%= keyholder.postcode %></td>
+    <td><%= keyholder.keyholder %></td>
+    <td><% if current_user || current_keyholder || current_guest %>
+        		<% if can? :read, keyholder %>
+		        	<%= link_to 'Show', keyholder %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :update, keyholder %>
+		        	<%= link_to 'Edit', edit_keyholder_path(keyholder) %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		        <td><% if can? :destroy, keyholder %>
+		        	<%= link_to 'Destroy', keyholder, method: :delete, data: { confirm: 'Are you sure?' } %>
+		        	<% else %>
+		        	<p>n/a</p>
+		        	<% end %></td>
+		     <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Keyholder', new_keyholder_path %>
