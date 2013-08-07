@@ -1,0 +1,17 @@
+	json.timeline do |json|
+		json.headline current_user.first_name
+		json.type "default"
+		json.text "A Timeline"
+		json.start_date
+		json.array!(@events) do |event|
+			json.start_date event.start_date
+			json.end_date event.end_date
+			json.headline event.headline
+			json.text event.text
+			json.asset do
+				json.media event.media
+				json.credit event.credit
+				json.caption event.caption
+			end
+		end
+	end

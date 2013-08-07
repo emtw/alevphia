@@ -39,46 +39,6 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     url_for :controller => "/#{resource_name}s", :id => resource.id, :action => 'myaccount'
   end
-  
-  def authorize
-    if user_signed_in?
-    @user = User.find(params[:id])
-      unless @user.id==current_user.id
-        redirect_to root_url, notice: "Access denied. Please log in to view this account."
-      end
-    else
-      redirect_to root_url, notice: "Access denied. Please login to view this account."
-    end
-    
-  end
-  
-  def authorize_keyholder
-    if keyholder_signed_in?
-    @keyholder = Keyholder.find(params[:id])
-      unless @keyholder.id==current_keyholder.id
-        redirect_to root_url, notice: "Access denied. Please log in to view this account."
-      end
-    elsif user_signed_in?
-      redirect_to :controller => 'users', :id => current_user.id, :action => 'myaccount'
-    else
-      redirect_to root_url, notice: "Access denied. Please login to view this account."
-    end
-  end
-  
-  def authorize_guest
-    if guest_signed_in?
-    @guest = Guest.find(params[:id])
-      unless @guest.id==current_guest.id
-        redirect_to root_url, notice: "Please log in to view this account."
-      end
-    elsif keyholder_signed_in?
-      redirect_to :controller => 'keyholders', :id => current_keyholder.id, :action => 'myaccount'
-    elsif user_signed_in?
-      redirect_to :controller => 'users', :id => current_user.id, :action => 'myaccount'
-    else
-      redirect_to root_url, notice: "Access denied. Please login to view this account."
-    end
-  end
 
   
 end

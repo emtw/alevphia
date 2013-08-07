@@ -1,6 +1,5 @@
 class GuestsController < ApplicationController
-  load_and_authorize_resource :except => [:myaccount]
-  before_filter :authorize_guest, only: [:myaccount]
+  load_and_authorize_resource
   # GET /guests
   # GET /guests.json
   def index

@@ -1,0 +1,15 @@
+<script>
+            $(document).ready(function() {
+                createStoryJS({
+                    type:       'timeline',
+                    width:      '820',
+                    height:     '600',
+                    source:     '/users/<%= current_user.id %>/events.json?callback',
+                    embed_id:   'my-timeline',
+                    font: 		'Euphoria-Droid',
+                    debug:		true,
+                    gmap_key:	'AIzaSyDCock8UhY8IC5uEhxYCn6bUN9FQY2g0T4',
+                    maptype:	'HYBRID'
+                });
+            });
+        </script>

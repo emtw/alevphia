@@ -1,0 +1,16 @@
+timeline do
+  headline current_user.first_name
+  type "default"
+  text "A Timeline"
+  startDate ""
+  date @events do |event|
+  	startDate event.start_date.strftime('%Y,%m,%d')
+  	endDate ""
+  	headline event.headline
+  	text event.text
+  	asset do
+  		media event.media
+  		caption event.caption
+  	end
+  end
+end

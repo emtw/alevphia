@@ -1,0 +1,28 @@
+<br />
+<h2>Delete Events</h2>
+<h4>Click 'delete' next to the event that you want to remove. Once deleted, the event cannot be retrieved again.</h4>
+
+<table class="table table-hover">
+  <tr>
+  	<thead>
+	    <th>Start date</th>
+	    <th>Headline</th>
+	    <th>Text</th>
+	    <th>Media</th>
+	    <th>Caption</th>
+	    <th></th>
+	</thead>
+  </tr>
+
+<% events.each do |event| %>
+  <tr>
+    <td><%= event.start_date.strftime("%d/%m/%Y") %></td>
+    <td title="<%= event.headline %>"><%= event.headline.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td title="<%= event.text %>"><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td title="<%= event.media %>"><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td title="<%= event.caption %>"><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td><%= button_to 'Delete', event, confirm: "Are you sure you want to remove this event?\nOnce deleted, the event cannot be retrieved again.",
+     method: :delete, :class => "btn btn-danger btn-mini", :update => "notice", :remote => true %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,30 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Start date</th>
+    <th>Headline</th>
+    <th>Text</th>
+    <th>Media</th>
+    <th>Caption</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.start_date %></td>
+    <td><%= event.headline %></td>
+    <td><%= event.text %></td>
+    <td><%= event.media %></td>
+    <td><%= event.caption %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Delete', event, confirm: 'Are you sure you want to delete this event?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_event_path %><br />
+<%= link_to 'Go to Timeline', current_user.timeline %>

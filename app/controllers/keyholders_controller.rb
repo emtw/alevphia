@@ -1,6 +1,5 @@
 class KeyholdersController < ApplicationController
-  load_and_authorize_resource :except => [:myaccount]
-  before_filter :authorize_keyholder, only: [:myaccount]
+  load_and_authorize_resource
   # GET /keyholders
   # GET /keyholders.json
   def index

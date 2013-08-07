@@ -1,0 +1,21 @@
+{
+  "timeline": {
+    "headline": "Emily",
+    "type": "default",
+    "text": "A Timeline",
+    "startDate": "1922,10,30",
+    "date": [
+      {
+        "startDate": "2012,11,17",
+        "endDate": "2012,11,17",
+        "headline": "My Birthday",
+        "text": "This is my birthday",
+        "asset": {
+          "media": "http://www.youtube.com/watch?v=dePMU8R131s",
+          "credit": "",
+          "caption": "Happy Birthday"
+        }
+      }
+    ]
+  }
+}

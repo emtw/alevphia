@@ -1,0 +1,46 @@
+<br />
+<h2>Add an event</h2>
+<h4>Fill in the form and click 'Create Event' to add a new event to the timeline.</h4>
+
+<%= form_for(event, :remote => true) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% if event.timeline.user_id != current_user.id %>
+	<%=f.hidden_field 'timeline_id', :value => current_user.access.timeline.id %>
+<% else %>
+  	<%=f.hidden_field 'timeline_id', :value => current_user.timeline.id %>
+<% end %>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :start_date, :order => [:day, :month, :year], :start_year => 1800 %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :headline, :size => 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :event_description %><br />
+    <%= f.text_area :text, :size => "47x4" %>
+  </div>
+  <%= check_box_tag "blockCheck", :value => "1", :checked => false %>
+  <div class="field" id="media_box">
+    <%= f.label :media %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Please paste a URL here</span><br />
+    <%= f.text_field :media, :size => 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :media_description %><br />
+    <%= f.text_area :caption, :size => "47x3" %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Create Event', :class => "btn btn-success"  %>
+  </div>
+<% end %>
