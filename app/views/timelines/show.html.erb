@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Event:</b>
+  <%= @timeline.event_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @timeline.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_timeline_path(@timeline) %> |
+<%= link_to 'Back', timelines_path %>

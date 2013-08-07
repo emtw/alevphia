@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timeline_id: 1
+  start_date: 2013-08-06
+  end_date: 2013-08-06
+  headline: MyText
+  text: MyText
+  media: MyText
+  thumbnail: MyText
+  credit: MyText
+  caption: MyText
+
+two:
+  timeline_id: 1
+  start_date: 2013-08-06
+  end_date: 2013-08-06
+  headline: MyText
+  text: MyText
+  media: MyText
+  thumbnail: MyText
+  credit: MyText
+  caption: MyText

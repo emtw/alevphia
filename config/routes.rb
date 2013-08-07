@@ -1,5 +1,11 @@
 ForgotNotIv::Application.routes.draw do
   
+  resources :events
+
+
+  resources :timelines
+
+
   resources :funerals
 
 
@@ -19,7 +25,7 @@ ForgotNotIv::Application.routes.draw do
     end
   end
   
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users do
     member do
       get 'myaccount'

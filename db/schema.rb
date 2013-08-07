@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806131207) do
+ActiveRecord::Schema.define(:version => 20130806220821) do
+
+  create_table "events", :force => true do |t|
+    t.integer  "timeline_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.text     "headline"
+    t.text     "text"
+    t.text     "media"
+    t.text     "thumbnail"
+    t.text     "credit"
+    t.text     "caption"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "funerals", :force => true do |t|
     t.string   "funeral_pref"
@@ -80,6 +94,13 @@ ActiveRecord::Schema.define(:version => 20130806131207) do
 
   add_index "keyholders", ["reset_password_token"], :name => "index_keyholders_on_reset_password_token", :unique => true
   add_index "keyholders", ["username"], :name => "index_keyholders_on_username", :unique => true
+
+  create_table "timelines", :force => true do |t|
+    t.integer  "event_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"

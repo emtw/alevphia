@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Timeline:</b>
+  <%= @event.timeline_id %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <b>Headline:</b>
+  <%= @event.headline %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @event.text %>
+</p>
+
+<p>
+  <b>Media:</b>
+  <%= @event.media %>
+</p>
+
+<p>
+  <b>Thumbnail:</b>
+  <%= @event.thumbnail %>
+</p>
+
+<p>
+  <b>Credit:</b>
+  <%= @event.credit %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%= @event.caption %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
