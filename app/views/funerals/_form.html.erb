@@ -10,72 +10,114 @@
       </ul>
     </div>
   <% end %>
+  
+  <script>
+  	$(document).ready(function() {
+  		$("#funeral_funeral_pref").change(function(){
+  			if ($("#funeral_funeral_pref").val()=="Other"){
+  				$("#other-pref").show(500);
+  			} else {
+  				$("#other-pref").hide();
+  			};
+  			if ($("#funeral_funeral_pref").val()=="Burial"){
+  				$("#burial-loc").show(500);
+  			} else {
+  				$("#burial-loc").hide();
+  			};
+  			if ($("#funeral_funeral_pref").val()=="Cremation"){
+  				$("#ashes-loc").show(500);
+  			} else {
+  				$("#ashes-loc").hide();
+  			}; 
+  		}).change()
+  	});
+  </script>
+  
 
-  <div class="field">
-    <%= f.label :funeral_pref %><br />
-    <%= f.text_field :funeral_pref %>
+  <div id="ttfuneral_pref" class="xtooltip">Would you like to be buried, cremated or other e.g. buried at sea, left to medical research?</div>
+  <div class="field" id="pref-select">
+    <%= f.label :funeral_preference %><br />
+    <%= f.select :funeral_pref, ["Other", "Burial", "Cremation"] %>
   </div>
-  <div class="field">
-    <%= f.label :casket_pref %><br />
-    <%= f.text_field :casket_pref %>
+  
+  <div id="ttother_loc" class="xtooltip loc_pref">Please give more information.</div>
+  <div class="field" id="other-pref">
+    <%= f.label "Other - please specify" %><br />
+    <%= f.text_area :other_pref %>
   </div>
-  <div class="field">
-    <%= f.label :other_pref %><br />
-    <%= f.text_field :other_pref %>
-  </div>
-  <div class="field">
-    <%= f.label :service_location %><br />
-    <%= f.text_field :service_location %>
-  </div>
-  <div class="field">
+  <div id="ttburial_loc" class="xtooltip loc_pref">State your personal choice.</div>
+  <div class="field" id="burial-loc">
     <%= f.label :burial_location %><br />
-    <%= f.text_field :burial_location %>
+    <%= f.text_area :burial_location %>
   </div>
-  <div class="field">
+  <div id="ttashes_loc" class="xtooltip loc_pref">State what you would like to happen with your ashes. e.g., scattered in a favourite place, buried under a tree/bush, given to somebody, etc.</div>
+  <div class="field" id="ashes-loc">
     <%= f.label :ashes_location %><br />
-    <%= f.text_field :ashes_location %>
+    <%= f.text_area :ashes_location %>
   </div>
-  <div class="field">
-    <%= f.label :songs_pref %><br />
+  <div id="ttcasket" class="xtooltip">State whether you'd like a traditional casket/coffin/urn or choose one of many customised designs now available. Feel free to paste a link.</div>
+  <div class="field" id="casket-pref">
+    <%= f.label :casket__or_urn_preference %><br />
+    <%= f.text_area :casket_pref %>
+  </div>
+  <div id="ttservice" class="xtooltip">State your personal choice.</div>
+  <div class="field" id="service-loc">
+    <%= f.label :service_location %><br />
+    <%= f.text_area :service_location %>
+  </div>
+  <div id="tthymn" class="xtooltip">State your favourite hymns or music. You may want certain pieces of music played at certain times in the service, i.e., start, middle or end. Not everyone may know your choices, so feel free to paste a link from itunes or alternative music site.</div>
+  <div class="field" id="hymn-pref">
+    <%= f.label :hymns_or_special_songs %><br />
     <%= f.text_area :songs_pref %>
   </div>
-  <div class="field">
+  <div id="ttreadings" class="xtooltip">Specify whether you have a favourite reading from your holy book or a favourite poem, etc.</div>
+  <div class="field" id="readings">
     <%= f.label :readings %><br />
     <%= f.text_area :readings %>
   </div>
+  <div id="ttspeakers" class="xtooltip">Request for a particular person to speak about you bearing in mind that it is only a request as some people may not feel able to.</div>
   <div class="field">
     <%= f.label :speakers %><br />
     <%= f.text_area :speakers %>
   </div>
+  <div id="ttfinal_words" class="xtooltip">Ok, now it's time for you to have the last word. Leave your final words here and suggest someone you'd like to read them. Remember though, if in a house of worship you might like to think about your choice of words. Leave a lasting impression, help your loved ones to remember you with a smile.</div>
   <div class="field">
     <%= f.label :final_words %><br />
     <%= f.text_area :final_words %>
   </div>
+  <div id="ttdress_code" class="xtooltip">Let your mourners know how you'd like them to dress - i.e. formal black or bright &amp; cheery etc?</div>
   <div class="field">
     <%= f.label :dress_code %><br />
     <%= f.text_field :dress_code %>
   </div>
+  <div id="ttflowers" class="xtooltip">Specify whether you want flowers from family only or from anybody. You may also like to state your favourite flower.</div>
   <div class="field">
     <%= f.label :flowers %><br />
     <%= f.text_field :flowers %>
   </div>
+  <div id="ttdonations" class="xtooltip">Name a charity / organisation that you would like supported on your passing.</div>
   <div class="field">
     <%= f.label :donations_to %><br />
     <%= f.text_field :donations_to %>
   </div>
+  <div id="ttwake" class="xtooltip">Specify location, food requirements, etc.</div>
   <div class="field">
     <%= f.label :wake %><br />
     <%= f.text_area :wake %>
   </div>
+  <div id="ttepitaph" class="xtooltip">Specific wording that you would like on your headstone / plaque.</div>
   <div class="field">
     <%= f.label :epitaph %><br />
     <%= f.text_area :epitaph %>
   </div>
-  <div class="field">
-    <%= f.label :additional_reqs %><br />
+  <div id="ttadd_req" class="xtooltip">Something personal to you not already covered.</div>
+  <div class="field field-last">
+    <%= f.label :additional_requirements %><br />
     <%= f.text_area :additional_reqs %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update Funeral', :class=>"btn btn-primary" %>
   </div>
+  <br />
+  
 <% end %>

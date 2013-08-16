@@ -1,37 +1,46 @@
-<p id="notice"><%= notice %></p>
-
+<div class="content-box">
+	<div id="funeral-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="funeral-pref-content">
+		<h1>Funeral Preferences</h1>
+		<br />
+		
 <p>
-  <b>Funeral pref:</b>
+  <b>Funeral preference:</b>
   <%= @funeral.funeral_pref %>
 </p>
 
+<% if @funeral.funeral_pref == "Other" %>
+	<p>
+  		<b>Other preference:</b>
+  		<%= @funeral.other_pref %>
+	</p>
+<% end %>
+
+<% if @funeral.funeral_pref == "Burial" %>
 <p>
-  <b>Casket pref:</b>
+  <b>Burial location:</b>
+  <%= @funeral.burial_location %>
+</p>
+<% end %>
+
+<% if @funeral.funeral_pref == "Cremation" %>
+<p>
+  <b>Ashes location:</b>
+  <%= @funeral.ashes_location %>
+</p>
+<% end %>
+
+<p>
+  <b>Casket preference:</b>
   <%= @funeral.casket_pref %>
 </p>
-
-<p>
-  <b>Other pref:</b>
-  <%= @funeral.other_pref %>
-</p>
-
 <p>
   <b>Service location:</b>
   <%= @funeral.service_location %>
 </p>
 
 <p>
-  <b>Burial location:</b>
-  <%= @funeral.burial_location %>
-</p>
-
-<p>
-  <b>Ashes location:</b>
-  <%= @funeral.ashes_location %>
-</p>
-
-<p>
-  <b>Songs pref:</b>
+  <b>Hymns pref:</b>
   <%= @funeral.songs_pref %>
 </p>
 
@@ -51,7 +60,7 @@
 </p>
 
 <p>
-  <b>Dress code:</b>
+  <b>Dress Code:</b>
   <%= @funeral.dress_code %>
 </p>
 
@@ -61,7 +70,7 @@
 </p>
 
 <p>
-  <b>Donations to:</b>
+  <b>Donations To:</b>
   <%= @funeral.donations_to %>
 </p>
 
@@ -76,11 +85,17 @@
 </p>
 
 <p>
-  <b>Additional reqs:</b>
+  <b>Additional Requirements:</b>
   <%= @funeral.additional_reqs %>
 </p>
 
+<% if can? :update, @funeral %>
+	<%= link_to 'Edit', edit_funeral_path(@funeral), :class=>"btn btn-info" %>
+<% end %> 
+<% if cannot? :update, @funeral %>
+	<br /><span class="unavailable-item borderless-bottom">These are the preferences set by <%= User.find(current_user.access_id).first_name %> and so are not editable by anyone else.</span>
+<% end %><br />
+</div>
+<div id="funeral-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
 
-
-<%= link_to 'Edit', edit_funeral_path(@funeral) %> |
-<%= link_to 'Back', funerals_path %>
+</div>

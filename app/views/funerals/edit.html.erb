@@ -1,6 +1,11 @@
-<h1>Editing funeral</h1>
+<div class="content-box">
+	<div id="funeral-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="funeral-pref-content">
+<h1>Edit your preferences</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @funeral %> |
-<%= link_to 'Back', funerals_path %>
+<%= link_to 'Cancel', @funeral, :class=>"btn btn-mini btn-danger" %> 
+	</div>
+<div id="funeral-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>

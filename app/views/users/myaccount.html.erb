@@ -1,93 +1,51 @@
-<p id="notice"><%= notice %></p>
-<h1>My Account</h1>
-
-<h2>Useful Links:</h2>
-<ul>
-	<li><%= link_to 'Funeral Plans', 
+<div id="user-left-wrapper">
+	<div id="shadow-left-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="user-left">
+	<div id="my-account-left">
+	<h2>My Account</h2>
+	<ul>
+		<li><%= link_to 'My Details', :controller => "users", :action => "show", :id => current_user.id %></li>
+		<li><%= link_to 'Funeral Plans', 
   			current_user.funeral.present? ? 
     		funeral_path(current_user.funeral) : 
     		new_funeral_path %></li>
-</ul>
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <b>Middle names:</b>
-  <%= @user.middle_names %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <b>Date of birth:</b>
-  <%= @user.date_of_birth %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
-</p>
-
-<p>
-  <b>Line 1:</b>
-  <%= @user.line_1 %>
-</p>
-
-<p>
-  <b>Line 2:</b>
-  <%= @user.line_2 %>
-</p>
-
-<p>
-  <b>Line 3:</b>
-  <%= @user.line_3 %>
-</p>
-
-<p>
-  <b>Town:</b>
-  <%= @user.town %>
-</p>
-
-<p>
-  <b>County:</b>
-  <%= @user.county %>
-</p>
-
-<p>
-  <b>Postcode:</b>
-  <%= @user.postcode %>
-</p>
-
-<p>
-  <b>Contact number:</b>
-  <%= @user.contact_number %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @user.user %>
-</p>
-
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
-
-<p>
-  <b>Keyholder:</b>
-  <%= @user.keyholder_id %>
-</p>
-
-<p>
-  <b>Guest:</b>
-  <%= @user.guest_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    	<li><%= link_to 'My Timeline', 
+      		current_user.timeline.present? ? 
+        	timeline_path(current_user.timeline) : 
+        	new_timeline_path %></li>
+        <li><a href="#">Order of Service</a></li>
+        <li><a href="#">Message Board</a></li>
+        <li><a href="#">Set up a Keyholder</a></li>
+        <li><a href="#">Add a Guest account</a></li>
+	</ul>
+	</div>
+	<br /><br />
+	
+	<div id="help-left">
+		<h2>Help</h2>
+			<ul>
+				<li><%= link_to 'FAQ', "#" %></li>
+				<li><%= link_to 'Contact Us', "#" %></li>
+				<li><%= link_to 'Remove Account', "#" %></li>
+			</ul>
+	</div>
+	</div>
+	<div id="shadow-left-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>
+<div id="user-right-wrapper">
+	<div id="shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="user-right">
+		<h1>What do you want to do...?</h1>
+		<p>This is the area where you can put all of your ideas - specify what you might like for your funeral, write letters for your loved ones and anything else that you want to document.</p>
+		<p>Use the links on the left or above to create or edit your plans, or choose from the handy shortcuts below.</p>
+		<h3>Useful links:</h3>
+		<ul>
+		<li><%= link_to 'Create or edit your funeral plans', 
+	  			current_user.funeral.present? ? 
+	    		funeral_path(current_user.funeral) : 
+	    		new_funeral_path %></li>
+	    <li><%= link_to 'Write letters for your loved ones', "#" %></li>
+	    </ul>
+    </div>
+    <div id="shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>
