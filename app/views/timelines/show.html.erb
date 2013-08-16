@@ -1,15 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= javascript_include_tag "/js/storyjs-embed.js" %>
+<%= javascript_include_tag "timeline-forms" %>
 
-<p>
-  <b>Event:</b>
-  <%= @timeline.event_id %>
-</p>
+<div id="show-timeline">
+<%= render :partial => "show_timeline" %>
+</div>
 
-<p>
-  <b>User:</b>
-  <%= @timeline.user_id %>
-</p>
+<div class="content-box timeline-box">
+	<div id="my-timeline-box">
+		<%= render :partial => "my_timeline" %>
+	</div>
+<br />
 
+<button id="new-event-button" class="btn btn-success btn-large">New Event</button>
+<button id="edit-events-button" class="btn btn-info btn-large">Edit Events</button>
+<button id="delete-events-button" class="btn btn-danger btn-large">Delete Events</button>
 
-<%= link_to 'Edit', edit_timeline_path(@timeline) %> |
-<%= link_to 'Back', timelines_path %>
+<div id="events-forms">
+	<div id="new-event">
+		<%= render :partial => "new_event", :locals => { :event => Event.new(:timeline_id=>@timeline.id) } %>
+	</div>
+
+	<div id="edit-events">
+		<%= render :partial => "edit_events", :locals => { :events => current_user.events } %>	
+	</div>
+
+	<div id="delete_events">
+		<%= render :partial => "delete_events", :locals => { :events => current_user.events } %>		
+	</div>
+</div>
+<div id="events-forms-edit">&nbsp;</div>
+
+</div>

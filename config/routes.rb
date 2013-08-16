@@ -1,7 +1,10 @@
 ForgotNotIv::Application.routes.draw do
   
-  resources :events
-
+  resources :events do
+    member do
+      get 'myevents'
+    end
+  end
 
   resources :timelines
 
@@ -31,6 +34,8 @@ ForgotNotIv::Application.routes.draw do
       get 'myaccount'
     end
   end  
+  
+  match 'users/:id/events' => 'events#myevents'
 
   root :to => 'public#index'
 

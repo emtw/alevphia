@@ -14,11 +14,9 @@
       </ul>
     </div>
   <% end %>
-<% if event.timeline.user_id != current_user.id %>
-	<%=f.hidden_field 'timeline_id', :value => current_user.access.timeline.id %>
-<% else %>
+
   	<%=f.hidden_field 'timeline_id', :value => current_user.timeline.id %>
-<% end %>
+
   <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :start_date, :order => [:day, :month, :year], :start_year => 1800 %>

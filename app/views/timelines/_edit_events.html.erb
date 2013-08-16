@@ -21,7 +21,7 @@
     <td><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
     <td><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
     <td><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td><%= button_to 'Edit', edit_event_path(event), :method => "get", :class => "btn btn-info btn-mini", :remote =>true %></td>
+    <td><%= button_to 'Edit', edit_event_path(event), :method => "get", :class => "btn btn-info btn-mini edit-event", :remote =>true %></td>
   </tr>
 <% end %>
 </table>

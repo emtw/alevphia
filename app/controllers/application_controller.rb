@@ -39,6 +39,13 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     url_for :controller => "/#{resource_name}s", :id => resource.id, :action => 'myaccount'
   end
+  
+  def authorize
+    @user = User.find(params[:id])
+      unless @user.id==current_user.id
+        redirect_to root_url, notice: "Please log in to view this account."
+      end
+  end
 
   
 end

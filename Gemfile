@@ -5,6 +5,8 @@ gem 'cancan'
 gem 'devise'
 gem 'bootstrap-sass'
 
+gem 'json_builder'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

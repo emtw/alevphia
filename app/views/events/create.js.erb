@@ -1,4 +1,5 @@
 $('#new-event').html('<%= escape_javascript( render :partial => "/timelines/new_event", :locals => { :event => Event.new(:timeline_id=>@timeline.id) }, :remote => true ) %>');
+$('#new-event').hide();
 $('.notice').html("<p>Event was successfully created.</p>");
 $('.notice').show(300);
 $('#my-timeline-box').html('<%= escape_javascript( render :partial => "/timelines/my_timeline" ) %>');

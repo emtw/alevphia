@@ -1,3 +1,19 @@
 // Place all the styles related to the Timelines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.timeline-box {
+  padding-left:20px;
+  padding-right:10px;
+}
+
+#new-event {
+  display:none;
+}
+
+#edit-events {
+  display:none;
+}
+
+#delete_events {
+  display:none;
+}

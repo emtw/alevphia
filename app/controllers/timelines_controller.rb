@@ -1,8 +1,9 @@
+
 class TimelinesController < ApplicationController
+  load_and_authorize_resource
   # GET /timelines
   # GET /timelines.json
   def index
-    @timelines = Timeline.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,6 @@ class TimelinesController < ApplicationController
   # GET /timelines/1
   # GET /timelines/1.json
   def show
-    @timeline = Timeline.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,6 @@ class TimelinesController < ApplicationController
   # GET /timelines/new
   # GET /timelines/new.json
   def new
-    @timeline = Timeline.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +33,11 @@ class TimelinesController < ApplicationController
 
   # GET /timelines/1/edit
   def edit
-    @timeline = Timeline.find(params[:id])
   end
 
   # POST /timelines
   # POST /timelines.json
   def create
-    @timeline = Timeline.new(params[:timeline])
 
     respond_to do |format|
       if @timeline.save
@@ -56,7 +53,6 @@ class TimelinesController < ApplicationController
   # PUT /timelines/1
   # PUT /timelines/1.json
   def update
-    @timeline = Timeline.find(params[:id])
 
     respond_to do |format|
       if @timeline.update_attributes(params[:timeline])
@@ -72,7 +68,6 @@ class TimelinesController < ApplicationController
   # DELETE /timelines/1
   # DELETE /timelines/1.json
   def destroy
-    @timeline = Timeline.find(params[:id])
     @timeline.destroy
 
     respond_to do |format|
