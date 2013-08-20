@@ -9,7 +9,10 @@ class Ability
     if model.has_attribute?("user") && (model.user == true)        
       can :manage, User, :id => model.id
       can :myaccount, User, :id => model.id
-      can [:create, :read, :update, :destroy], Keyholder do |key|
+      if model.keyholder.nil?
+        can :create, Keyholder
+      end
+      can [:read, :update, :destroy], Keyholder do |key|
         key.user_id == model.id
       end
       can [:create, :read, :update, :destroy], Guest do |guest|
@@ -34,16 +37,13 @@ class Ability
       can :read, Timeline do |timeline|
         timeline.user_id == model.user_id
       end
-      can [:create, :read, :update, :destroy], Event do |event|
-        event.timeline.user_id == model.user_id
-      end
       
     end
     
     
     if model.has_attribute?("guest") && (model.guest == true)
       can :read, User, :id => model.user_id
-      can :read, Guest, :id => model.id
+      can [:read, :myaccount], Guest, :id => model.id
       can :read, Funeral do |funeral|
         funeral.user_id == model.user_id
       end
@@ -52,6 +52,9 @@ class Ability
       end
       can [:create, :read], Event do |event|
         event.timeline.user_id == model.user_id
+      end
+      can :contact, Keyholder do |keyholder|
+        keyholder.user_id == model.user_id
       end
       
     end

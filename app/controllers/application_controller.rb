@@ -46,6 +46,5 @@ class ApplicationController < ActionController::Base
         redirect_to root_url, notice: "Please log in to view this account."
       end
   end
-
-  
+    
 end

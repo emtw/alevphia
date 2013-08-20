@@ -1,6 +1,6 @@
 <div class="content-box">
-	<div id="funeral-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
-	<div id="funeral-pref-content">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
 		<h1>Funeral Preferences</h1>
 		<br />
 		
@@ -93,9 +93,9 @@
 	<%= link_to 'Edit', edit_funeral_path(@funeral), :class=>"btn btn-info" %>
 <% end %> 
 <% if cannot? :update, @funeral %>
-	<br /><span class="unavailable-item borderless-bottom">These are the preferences set by <%= User.find(current_user.access_id).first_name %> and so are not editable by anyone else.</span>
+	<br /><span class="unavailable-item borderless-bottom">These are the preferences set by <%= @funeral.user.first_name %> and so are not editable by anyone else.</span>
 <% end %><br />
 </div>
-<div id="funeral-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
 
 </div>

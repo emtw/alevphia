@@ -17,11 +17,11 @@
 
 <div id="events-forms">
 	<div id="new-event">
-		<%= render :partial => "new_event", :locals => { :event => Event.new(:timeline_id=>@timeline.id) } %>
+		<%= render :partial => "new_event", :locals => { :event => Event.new(:timeline_id=>@timeline.id) }, :remote => true %>
 	</div>
 
 	<div id="edit-events">
-		<%= render :partial => "edit_events", :locals => { :events => current_user.events } %>	
+		<%= render :partial => "edit_events", :locals => { :events => current_user.events }, :remote => true %>	
 	</div>
 
 	<div id="delete_events">

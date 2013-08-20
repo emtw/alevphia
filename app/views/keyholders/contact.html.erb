@@ -5,11 +5,6 @@
 		<br />
 
 <p>
-  <b>Username:</b>
-  <%= @keyholder.username %>
-</p>
-
-<p>
   <b>First name:</b>
   <%= @keyholder.first_name %>
 </p>
@@ -20,25 +15,9 @@
 </p>
 
 <p>
-  <b>House:</b>
-  <%= @keyholder.house %>
+  <b>Email:</b>
+  <%= @keyholder.email %>
 </p>
-
-<p>
-  <b>Postcode:</b>
-  <%= @keyholder.postcode %>
-</p>
-
-<p>
-  <b>Keyholder:</b>
-  <%= @keyholder.keyholder %>
-</p>
-
-<%= link_to 'Destroy', @keyholder, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-<%= link_to 'Edit', edit_keyholder_path(@keyholder) %> |
-<%= link_to 'Back', keyholders_path %>
 
 </div>
 <div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>

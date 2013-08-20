@@ -1,0 +1,23 @@
+		<div id="user-menu">
+			<ul>
+				<li class="btn btn-primary"><br /><%= link_to 'My Account', :controller => "/users", :id => current_user.id, :action => "myaccount" %></li>
+				<li class="btn btn-primary"><br /><%= link_to 'Funeral', 
+			      	current_user.funeral.present? ? 
+			        funeral_path(current_user.funeral) : 
+			        new_funeral_path %></li>
+			    <li class="btn btn-primary"><br /><%= link_to 'Timeline', 
+			      	current_user.timeline.present? ? 
+			        timeline_path(current_user.timeline) : 
+			        new_timeline_path %></li>
+			    <li class="btn btn-primary"><a href="#">Order of Service</a></li>
+			    <li class="btn btn-primary"><a href="#">Message Board</a></li>
+			    <li class="btn btn-info"><br /><%= link_to 'Keyholder', 
+			      	current_user.keyholder.present? ? 
+			        keyholder_path(current_user.keyholder) : 
+			        new_keyholder_registration_path %></li>
+			    <li class="btn btn-success"><br /><%= link_to 'Guest', 
+			      	current_user.guest.present? ? 
+			        guest_path(current_user.guest) : 
+			        new_guest_registration_path %></li>
+			</ul>
+		</div>

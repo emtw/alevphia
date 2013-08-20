@@ -15,40 +15,26 @@
 body{
   
 }
-
-.btn-main {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #27a5c8 !important;
-  background-image: -moz-linear-gradient(top, #27a5c8, #3fb7d9) !important;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#27a5c8), to(#3fb7d9)) !important;
-  background-image: -webkit-linear-gradient(top, #27a5c8, #3fb7d9) !important;
-  background-image: -o-linear-gradient(top, #27a5c8, #3fb7d9) !important;
-  background-image: linear-gradient(to bottom, #27a5c8, #3fb7d9) !important;
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff27a5c8', endColorstr='#ff3fb7d9', GradientType=0) !important;
-  border-color: #27a5c8 #27a5c8 #002a80 !important;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  *background-color: #27a5c8 !important;
-  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  }
-
 #logo-area{
-  height:180px;
+  height:200px;
+  width:900px;
   h1 {
     text-align:center;
+  }
+  img{
+    height:199px;
+    float:left;
   }
 }
 
 #main-menu {
-  position:relative;
+  position:absolute;
   border-top: 4px solid #a4dded;
   border-bottom: 2px solid #a4dded;
   height:50px;
   z-index:20;
   background-color:#fff;
+  width:900px;
   ul li{
     list-style-type:none;
     float:left;
@@ -63,17 +49,19 @@ body{
 #user-nav, #keyholder-nav, #guest-nav {
     float:right;
     text-align:right;
-  }
+    list-style-type:none;  
+}
   
 #user-menu {
   height:40px;
+  position:absolute;
   ul li{
-    position:relative;
     list-style-type: none;
     float:left;
     margin-left:20px;
-    margin-top:-20px;
+    margin-top:40px;
     z-index: 10;
+    height:38px;
     a {
       color:#fff !important;
     }
@@ -89,9 +77,11 @@ body{
   margin-right:auto;
   #wrapper-content {
     text-align:left;
+    margin-top:100px;
   }
 }
-#funeral-pref-content {
+#form-pref-content {
+  padding-bottom : 20px;
   textarea {
   width:460px !important;
   height:180px !important;
@@ -1013,125 +1003,6 @@ input[type="submit"].btn.btn-mini {
   margin-right:auto;
 }
 
-#navbar {
-  width:900px;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  height:320px;
-  margin-bottom:70px;
-  img {
-    height:320px;
-    z-index:100;
-  }
-  #nav {
-    position:relative;
-    text-align:left;
-    width:900px;
-    height:51px;
-    background-color:#fff;
-    -webkit-box-shadow: 1px -1px 1px 4px #afafaf;
-    box-shadow: 1px -1px 1px 4px #afafaf; 
-    margin-top:-45px;
-    z-index:1001;
-  }
-  #nav-cover {
-    position:relative;
-    width:960px;
-    background-color:#fff;
-    z-index:1100;
-    height:51px;
-    margin-top:-81px;
-    margin-left:-30px;
-    #nav-menu {
-      font-size:30px;
-      height: 49px;
-      width:868px;
-      border-top:2px solid #888;
-      border-bottom:2px solid #888;
-      margin-left:27px;
-      padding-left:40px;
-      li {
-        float:left;
-        list-style-type:none;
-        padding-top:15px;
-        padding-left:60px;
-        font-family: Georgia;
-        a {
-        text-decoration:none;
-        }
-      }
-    }
-  }
-  #nav-login {
-      position:relative;
-      float:right;
-      margin-top:-8px;
-      margin-right:-5px;
-      z-index:1000;
-      li {
-        -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-        -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-        box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
-        background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
-        background-color:#79bbff;
-        -moz-border-radius:6px;
-        -webkit-border-radius:6px;
-        border-radius:6px;
-        border:1px solid #84bbf3;
-        display:inline-block;
-        color:#ffffff;
-        font-family:Georgia;
-        font-size:15px;
-        font-weight:bold;
-        padding:6px 24px;
-        padding-top:15px;
-        text-decoration:none;
-        text-shadow:1px 1px 0px #528ecc;
-        }
-        li:hover {
-        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
-        background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
-        background-color:#378de5;
-        }
-        li:active {
-        position:relative;
-        top:1px;
-        }
-        a {
-        text-decoration:none;
-        background-color:none;
-        }
-    }
-  
-  h1 {
-    float:left;
-    margin-left:40px;
-    margin-top:70px;
-    a {
-      text-decoration:none;
-    }
-  }
-  
-  a {
-    color:#fff;
-  }
-  
-  .hmenu {
-    float:right;
-    margin-right:10px;
-    li {
-      float:right;
-      list-style-type:none;
-    }
-    p {
-      clear:both;
-    }
-  }
-}
 
 #other-pref {
   display:none;
@@ -1147,7 +1018,7 @@ input[type="submit"].btn.btn-mini {
     margin-bottom:25px;
   }
 }
-#funeral-shadow-top {
+#form-shadow-top {
   margin-top:20px;
   margin-bottom:-10px;
   
@@ -1155,7 +1026,7 @@ input[type="submit"].btn.btn-mini {
     width:860px;  
   }
 }
-#funeral-pref-content {
+#form-pref-content {
   background-color:#f6f6f6;
   padding-left:30px;
   padding-right:30px;
@@ -1181,7 +1052,7 @@ input[type="submit"].btn.btn-mini {
     text-decoration:none;
   }
 }
-#funeral-shadow-bottom {
+#form-shadow-bottom {
   img{ 
   width:860px;
   }
@@ -1200,4 +1071,7 @@ input[type="submit"].btn.btn-mini {
 
 #ttfuneral_pref, #ttdress_code, #ttdonations, #ttflowers {
   margin-top:10px;
+}
+.italic {
+  font-style:italic;
 }

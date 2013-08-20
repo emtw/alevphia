@@ -70,11 +70,6 @@
   margin-top:40px;
   margin-bottom:50px;
   
-  img {
-    position:relative;
-    z-index:100;
-    width:560px;
-  }
   #shadow-top {
     margin-bottom:-22px;
     margin-top:-22px;
@@ -108,6 +103,14 @@
   }
 }
 
+#shadow-bottom, #shadow-top{
+  img {
+    position:relative;
+    z-index:100;
+    width:560px;
+  }
+}
+
 #user-right{
   position:relative;
   z-index:101;
@@ -118,4 +121,13 @@
   li{
     margin-left:-20px;
   }
+}
+.green {
+  color:#43c900;
+}
+#checklist img{
+  width:16px;
+  height:16px;
+  display:inline;
+  margin-top:2px;
 }

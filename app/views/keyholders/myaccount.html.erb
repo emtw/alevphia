@@ -1,42 +1,94 @@
-<p id="notice"><%= notice %></p>
-
-<h1>My Account</h1>
-
-<p>
-  <b>Username:</b>
-  <%= @keyholder.username %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @keyholder.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @keyholder.last_name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @keyholder.user_id %>
-</p>
-
-<p>
-  <b>House:</b>
-  <%= @keyholder.house %>
-</p>
-
-<p>
-  <b>Postcode:</b>
-  <%= @keyholder.postcode %>
-</p>
-
-<p>
-  <b>Keyholder:</b>
-  <%= @keyholder.keyholder %>
-</p>
-
-
-<%= link_to 'Edit', edit_keyholder_path(@keyholder) %> |
-<%= link_to 'Back', keyholders_path %>
+<div id="user-left-wrapper">
+	<div id="shadow-left-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="user-left">
+	<div id="my-account-left">
+	<h2>My Account</h2>
+	<ul>
+		<li><%= link_to 'My Details', :controller => "keyholders", :action => "show", :id => current_keyholder.id %></li>
+		<% if current_keyholder.user.funeral.present? %>
+			<li><%= link_to 'Funeral Preferences', funeral_path(current_keyholder.user.funeral) %></li>
+			<% end %>
+    	<li><% if current_keyholder.user.timeline.present? %>
+			<%= link_to 'Timeline', timeline_path(current_keyholder.user.timeline) %>
+			<% else %>
+			<%= link_to 'Timeline', new_timeline_path %>
+			<% end %></li>
+        <li><a href="#">Order of Service</a></li>
+        <li><a href="#">Message Board</a></li>
+        <% if current_keyholder.user.guest.present? %>
+        	<li><%= link_to 'Edit Guest', guest_path(current_keyholder.user.guest) %></li>
+        <% else %>
+        	<li><%= link_to 'Add a Guest account', new_guest_registration_path %></li>
+        <% end %>
+	</ul>
+	</div>
+	<br /><br />
+	
+	<div id="help-left">
+		<h2>Help</h2>
+			<ul>
+				<li><%= link_to 'FAQ', "#" %></li>
+				<li><%= link_to 'Contact Us', "#" %></li>
+			</ul>
+	</div>
+	</div>
+	<div id="shadow-left-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>
+<div id="user-right-wrapper">
+	<div id="shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="user-right">
+		<h1>What do you want to do...?</h1><br />
+		<p>The below explains what you can do with the information <%= current_keyholder.user.first_name %> added to their account and what you can add yourself.</p>
+		<h3>Available to you:</h3>
+		<ul>
+			<% if current_keyholder.user.funeral.present? %>
+				<li><%= link_to 'View', funeral_path(current_keyholder.user.funeral) %> the funeral preferences.</li>
+				<% else %>
+				<li class="italic">Funeral preferences are unavailable as none were stated.</li>
+				<% end %>
+			<li><% if current_keyholder.user.timeline.present? %>
+				<%= link_to 'View timeline', timeline_path(current_keyholder.user.timeline) %> and create, edit or delete events.
+				<% else %>
+				<%= link_to 'Create timeline', new_timeline_path %>
+				<% end %></li>
+			<li>Placeholder for Order of Service</li>
+			<li>Placeholder for Message Board</li>
+			<li><%= link_to 'View and edit', keyholder_path(current_keyholder) %> your details</li>
+			<li><% if current_keyholder.user.guest.present? %>
+				<%= link_to 'View and edit', guest_path(current_keyholder.user.guest) %> the guest account
+				<% else %>
+				<%= link_to 'Create', new_guest_registration_path %> a guest account
+				<% end %>
+			</li>
+			
+		</ul>
+	    <h3>Checklist:</h3>
+	    <p>This checklist shows you what has been created so far. Not all features may be available to you.</p>
+	    <ul id="checklist">
+	    	<% if current_keyholder.user.funeral.present? %>
+	    	<li>Funeral Preferences - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    	<% else %>
+	    	<li>Funeral Preferences - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% end %>
+	    	<% if current_keyholder.user.timeline.present? %>
+	    	<li>Timeline set up - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+		    	<% if current_keyholder.user.timeline.events.present? %>
+		    	<li>Timeline event added - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+		    	<% else %>
+		    	<li>Timeline event added - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+		    	<% end %>
+	    	<% else %>
+	    	<li>Timeline set up - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<li>Timeline event added - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% end %>
+	    	<li>Order of Service - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<li>Message Board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% if current_keyholder.user.guest.present? %>
+	    	<li>Guest account created - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    	<% else %>
+	    	<li>Guest account created - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% end %>
+	    </ul>
+    </div>
+    <div id="shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>

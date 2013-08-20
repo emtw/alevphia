@@ -1,3 +1,7 @@
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+
 <%= form_for(@guest) do |f| %>
   <% if @guest.errors.any? %>
     <div id="error_explanation">
@@ -31,3 +35,8 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>
+

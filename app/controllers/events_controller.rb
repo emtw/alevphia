@@ -49,12 +49,11 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @timeline = current_user.timeline
-    @event = Event.new(params[:event])
+      @timeline = current_user.timeline
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event.timeline, notice: 'Event was successfully created. Controller code.' }
+        format.html { redirect_to @event.timeline, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
         format.js 
       else

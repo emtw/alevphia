@@ -94,4 +94,8 @@ class KeyholdersController < ApplicationController
     end
   end
   
+  def contact
+    @keyholder = Keyholder.select("first_name, last_name, email").find(params[:id])
+  end
+  
 end

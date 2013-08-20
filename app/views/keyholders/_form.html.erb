@@ -1,3 +1,7 @@
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+
 <%= form_for(@keyholder) do |f| %>
   <% if @keyholder.errors.any? %>
     <div id="error_explanation">
@@ -24,22 +28,23 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :house %><br />
+    <%= f.label :house_name_or_number %><br />
     <%= f.text_field :house %>
   </div>
   <div class="field">
     <%= f.label :postcode %><br />
     <%= f.text_field :postcode %>
   </div>
-  <div class="field">
-    <%= f.label :keyholder %><br />
-    <%= f.check_box :keyholder %>
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>
+

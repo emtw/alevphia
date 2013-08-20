@@ -25,6 +25,7 @@ ForgotNotIv::Application.routes.draw do
   resources :keyholders do
     member do
       get 'myaccount'
+      get 'contact'
     end
   end
   

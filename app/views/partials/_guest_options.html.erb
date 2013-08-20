@@ -1,0 +1,18 @@
+		<div id="user-menu">
+			<ul>
+				<li class="btn btn-info"><br /><%= link_to 'Guest Account', :controller => "/guests", :id => current_guest.id, :action => "myaccount" %></li>
+				<% if current_guest.user.funeral.present? %>
+				<li class="btn btn-primary"><br /><%= link_to 'Funeral', funeral_path(current_guest.user.funeral) %></li>
+				<% else %>
+				<li class="btn disabled"><br />Funeral</li>
+				<% end %>
+			    <li class="btn btn-primary"><br /><%= link_to 'Timeline', 
+			      	current_guest.user.timeline.present? ? 
+			        timeline_path(current_guest.user.timeline) : 
+			        new_timeline_path %></li>
+			    <li class="btn btn-primary"><a href="#">Order of Service</a></li>
+			    <li class="btn btn-primary"><a href="#">Message Board</a></li>
+			    <li class="btn btn-success"><br /><%= link_to 'Keyholder Details',
+			    	:controller => "/keyholders", :id => current_guest.user.keyholder.id, :action => "contact" %></li>
+			</ul>
+		</div>
