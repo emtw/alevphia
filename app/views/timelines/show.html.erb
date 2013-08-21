@@ -12,20 +12,29 @@
 <br />
 
 <button id="new-event-button" class="btn btn-success btn-large">New Event</button>
+<% if can? :update, Event %>
 <button id="edit-events-button" class="btn btn-info btn-large">Edit Events</button>
+<% end %>
+<% if can? :destroy, Event %>
 <button id="delete-events-button" class="btn btn-danger btn-large">Delete Events</button>
+<% end %>
 
 <div id="events-forms">
+	
 	<div id="new-event">
 		<%= render :partial => "new_event", :locals => { :event => Event.new(:timeline_id=>@timeline.id) }, :remote => true %>
 	</div>
-
+	
 	<div id="edit-events">
-		<%= render :partial => "edit_events", :locals => { :events => @access_user.events }, :remote => true %>	
+		<% if can? :update, Event %>
+		<%= render :partial => "edit_events", :locals => { :events => @access_user.events }, :remote => true %>
+		<% end %>	
 	</div>
 
 	<div id="delete_events">
-		<%= render :partial => "delete_events", :locals => { :events => @access_user.events } %>		
+		<% if can? :destroy, Event %>
+		<%= render :partial => "delete_events", :locals => { :events => @access_user.events } %>
+		<% end %>		
 	</div>
 </div>
 <div id="events-forms-edit">&nbsp;</div>

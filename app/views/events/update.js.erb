@@ -3,5 +3,5 @@ $('.notice').html("<p>Event was successfully edited.</p>");
 $('.notice').show(300);
 $('#my-timeline-box').html('<%= escape_javascript( render :partial => "/timelines/my_timeline" ) %>');
 $('#show-timeline').html('<%= escape_javascript( render :partial => "/timelines/show_timeline" ) %>');
-$('#edit-events').html('<%= escape_javascript( render :partial => "/timelines/edit_events", :locals => { :events => current_user.events }, :remote => true ) %>');
-$('#delete_events').html('<%= escape_javascript( render :partial => "/timelines/delete_events", :locals => { :events => current_user.events } ) %>');
+$('#edit-events').html('<%= escape_javascript( render :partial => "/timelines/edit_events", :locals => { :events => @access_user.events }, :remote => true ) %>');
+$('#delete_events').html('<%= escape_javascript( render :partial => "/timelines/delete_events", :locals => { :events => @access.events } ) %>');

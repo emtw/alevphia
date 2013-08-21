@@ -15,7 +15,10 @@ class Ability
       can [:read, :update, :destroy], Keyholder do |key|
         key.user_id == model.id
       end
-      can [:create, :read, :update, :destroy], Guest do |guest|
+      if model.guest.nil?
+        can :create, Keyholder
+      end
+      can [:read, :update, :destroy], Guest do |guest|
         guest.user_id == model.id
       end
       can :manage, Funeral, :user_id => model.id
@@ -39,6 +42,12 @@ class Ability
       end
       can :manage, Event do |event|
         event.timeline.user_id == model.user_id
+      end
+      if model.user.guest.nil?
+        can :create, Guest
+      end
+      can [:read, :update, :destroy], Guest do |guest|
+        guest.user_id == model.user_id
       end
       
     end
