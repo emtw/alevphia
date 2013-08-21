@@ -1,5 +1,5 @@
 timeline do
-  headline current_user.first_name
+  headline @access_user.first_name
   type "default"
   text "A Timeline"
   startDate ""

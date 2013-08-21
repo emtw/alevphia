@@ -4,7 +4,7 @@
                     type:       'timeline',
                     width:      '820',
                     height:     '600',
-                    source:     '/users/<%= current_user.id %>/events.json?callback',
+                    source:     '/users/<%= @access_user.id %>/events.json?callback',
                     embed_id:   'my-timeline',
                     font: 		'Euphoria-Droid',
                     debug:		true,

@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   end
   
   def myevents
-    @events = current_user.events
+    @events = @access_user.events
     respond_with @users
   end
 
@@ -49,7 +49,8 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-      @timeline = current_user.timeline
+      @timeline = @access_user.timeline
+      @event.timeline_id = @access_user.timeline.id 
 
     respond_to do |format|
       if @event.save

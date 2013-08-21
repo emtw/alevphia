@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :access_user
   
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = "Access denied."
@@ -26,6 +27,18 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def access_user
+    if user_signed_in?
+      @access_user = current_user
+    end
+    if keyholder_signed_in?
+      @access_user = current_keyholder.user
+    end
+    if guest_signed_in?
+      @access_user = current_guest.user
+    end
+  end
+  
   protected
   
   def after_sign_up_path_for(resource)
@@ -42,7 +55,7 @@ class ApplicationController < ActionController::Base
   
   def authorize
     @user = User.find(params[:id])
-      unless @user.id==current_user.id
+      unless @user.id == @access_user.id
         redirect_to root_url, notice: "Please log in to view this account."
       end
   end

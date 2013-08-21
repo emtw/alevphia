@@ -37,6 +37,9 @@ class Ability
       can :read, Timeline do |timeline|
         timeline.user_id == model.user_id
       end
+      can :manage, Event do |event|
+        event.timeline.user_id == model.user_id
+      end
       
     end
     
@@ -58,9 +61,9 @@ class Ability
       end
       
     end
-    
+        
     can :create, User
-    cannot :index, [User, Keyholder, Guest]
+    cannot :index, [User, Keyholder, Guest, Event, Timeline, Funeral]
         
   end
   
