@@ -6,7 +6,6 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'json_builder'
-gem 'ruby', '1.9.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

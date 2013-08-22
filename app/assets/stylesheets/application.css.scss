@@ -223,16 +223,16 @@ body{
   font-family: verdana, arial, helvetica, sans-serif
 }
 h1 {
-  font-family:'Euphoria Script', cursive;
+  font-family:'Euphoria Script', cursive !important;
   font-size:40px !important;
   line-height:42px !important;
 }
 h2 {
-  font-family:'Euphoria Script', cursive; 
+  font-family:'Euphoria Script', cursive !important; 
   font-size:32px !important; 
 }
 h3{
-  font-family:'Euphoria Script', cursive;
+  font-family:'Euphoria Script', cursive !important;
   font-size: 27px !important;
 }
 #error_explanation {
