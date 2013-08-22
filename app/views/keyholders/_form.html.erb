@@ -15,7 +15,7 @@
   
   <span>Required fields are marked with a *</span>
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %><%= mark_required(@keyholder, :username) %><br />
     <%= f.text_field :username %>
   </div>
   <div class="field" id="key_pw_field">
@@ -23,34 +23,34 @@
   </div>
   <div id="key_pw">
 	  <div class="field">
-	    <%= f.label :new_password %><br />
+	    <%= f.label :new_password %><%= mark_required(@keyholder, :password) %><br />
 	    <%= f.password_field :password, :autocomplete => "off" %>
 	  </div>
 	
 	  <div class="field">
-	    <%= f.label :password_confirmation %><br />
+	    <%= f.label :password_confirmation %><%= mark_required(@keyholder, :password_confirmation) %><br />
 	    <%= f.password_field :password_confirmation %>
 	  </div>
 	
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %><%= mark_required(@keyholder, :email) %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %><%= mark_required(@keyholder, :first_name) %><br />
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %><%= mark_required(@keyholder, :last_name) %><br />
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :house_name_or_number %><br />
+    <%= f.label :house_name_or_number %><%= mark_required(@keyholder, :house) %><br />
     <%= f.text_field :house %>
   </div>
   <div class="field">
-    <%= f.label :postcode %><br />
+    <%= f.label :postcode %><%= mark_required(@keyholder, :postcode) %><br />
     <%= f.text_field :postcode %>
   </div>
   <div class="actions field">
