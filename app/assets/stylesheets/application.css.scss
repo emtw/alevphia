@@ -13,7 +13,20 @@
  */
 
 body{
-  
+  font-family: verdana, arial, helvetica, sans-serif
+}
+h1 {
+  font-family:'Euphoria Script', cursive;
+  font-size:40px !important;
+  line-height:42px !important;
+}
+h2 {
+  font-family:'Euphoria Script', cursive; 
+  font-size:32px !important; 
+}
+h3{
+  font-family:'Euphoria Script', cursive;
+  font-size: 27px !important;
 }
 #logo-area{
   height:200px;
@@ -83,7 +96,7 @@ body{
 #form-pref-content {
   padding-bottom : 20px;
   textarea {
-  width:460px !important;
+  width:440px !important;
   height:180px !important;
   margin-bottom:20px;
   resize:none;
@@ -92,8 +105,7 @@ body{
         box-shadow: 1px 1px 0 #DDDDDD;
         display: block;
         line-height: 21px !important;
-        padding-top:3px !important;
-        padding-bottom:3px !important;
+        padding-bottom:7px !important;
         background-image: -moz-linear-gradient(top , transparent, transparent 20px,#E7EFF8 0px);
         background-image: -webkit-linear-gradient(top , transparent, transparent 20px,#E7EFF8 0);
         -webkit-background-size:  99em 21px;
@@ -102,13 +114,40 @@ body{
         overflow-x:hidden;
   }
 
-  input[type="text"] {
-    width:460px !important;
+  input[type="text"], input[type="email"], input[type="password"] {
+    width:300px;
   }
-  select, input[type="text"], textarea {
+  select, input[type="text"], textarea, input[type="email"], input[type="password"] {
     margin-top:10px;
-    margin-left:10px;
   }
+  #user_date_of_birth_3i {
+    width:80px;
+  }
+  #user_date_of_birth_2i {
+    width:125px;
+  }
+  #user_date_of_birth_1i {
+    width:100px;
+  }
+  #user_gender, #user_county {
+    width:315px;
+  }
+  #user-middle-names{
+    margin-left:87px;
+  }
+  #user-last-name {
+    margin-left:114px;
+  }
+  #user_first_name {
+    width:150px;
+  } 
+  #user_middle_names, #user_last_name {
+    width:200px;
+  }
+  label {
+  display: inline-block;
+}
+
 }
 select,
 textarea,
@@ -1034,6 +1073,11 @@ input[type="submit"].btn.btn-mini {
   
   label {
     font-weight:bold;
+    font-family: verdana, arial, helvetica, sans-serif;
+  }
+  
+  .field{
+    padding-left: 50px;
   }
   
   p, .field {
@@ -1074,4 +1118,7 @@ input[type="submit"].btn.btn-mini {
 }
 .italic {
   font-style:italic;
+}
+#key_pw{
+  display:none;
 }

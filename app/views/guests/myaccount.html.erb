@@ -4,15 +4,15 @@
 	<div id="my-account-left">
 	<h2>Guest Account</h2>
 	<ul>
-		<li><% if current_guest.user.funeral.present? %>
-			<%= link_to 'Funeral Preferences', funeral_path(current_guest.user.funeral) %>
-			<% end %></li>
+		<% if current_guest.user.funeral.present? %>
+		<li><%= link_to 'Funeral Preferences', funeral_path(current_guest.user.funeral) %></li>
+			<% end %>
     	<li><%= link_to 'Timeline', timeline_path(current_guest.user.timeline) %></li>
         <li><a href="#">Order of Service</a></li>
         <li><a href="#">Message Board</a></li>
-        <li><% if current_guest.user.keyholder.present? %>
-        	<%= link_to 'Keyholder Details', :controller => "/keyholders", :id => current_guest.user.keyholder.id, :action => "contact" %>
-        	<% end %></li>
+        <% if current_guest.user.keyholder.present? %>
+        	<li><%= link_to 'Keyholder Details', :controller => "/keyholders", :id => current_guest.user.keyholder.id, :action => "contact" %></li>
+        	<% end %>
 	</ul>
 	</div>
 	<br /><br />

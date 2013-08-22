@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :middle_names %><br />
-    <%= f.text_field :middle_names %>
+  	<%= f.label :email %><br />
+  	<%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :first_name %> <%= f.label :middle_names, :id =>"user-middle-names" %> <%= f.label :last_name, :id => "user-last-name" %><br />
+    <%= f.text_field :first_name %> <%= f.text_field :middle_names %> <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
@@ -29,18 +29,18 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.select :gender, ["", "Male", "Female"] %>
   </div>
   <div class="field">
-    <%= f.label :line_1 %><br />
+    <%= f.label :first_line_of_address %><br />
     <%= f.text_field :line_1 %>
   </div>
   <div class="field">
-    <%= f.label :line_2 %><br />
+    <%= f.label :second_line_of_address %><br />
     <%= f.text_field :line_2 %>
   </div>
   <div class="field">
-    <%= f.label :line_3 %><br />
+    <%= f.label :third_line_of_address %><br />
     <%= f.text_field :line_3 %>
   </div>
   <div class="field">
@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :county %><br />
-    <%= f.text_field :county %>
+    <%= f.collection_select :county, COUNTIES, :to_s, :titleize, {:prompt => true} %>
   </div>
   <div class="field">
     <%= f.label :postcode %><br />
@@ -59,23 +59,7 @@
     <%= f.label :contact_number %><br />
     <%= f.text_field :contact_number %>
   </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.check_box :user %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :keyholder_id %><br />
-    <%= f.number_field :keyholder_id %>
-  </div>
-  <div class="field">
-    <%= f.label :guest_id %><br />
-    <%= f.number_field :guest_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions field">
+    <%= f.submit 'Update', :class => "btn btn-success" %>
   </div>
 <% end %>

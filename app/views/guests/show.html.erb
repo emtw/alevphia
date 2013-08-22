@@ -5,28 +5,12 @@
 		<br />
 
 <p>
-  <b>Name:</b>
-  <%= @guest.name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @guest.user_id %>
-</p>
-
-<p>
   <b>Username:</b>
   <%= @guest.username %>
 </p>
 
-<p>
-  <b>Guest:</b>
-  <%= @guest.guest %>
-</p>
 
-
-<%= link_to 'Edit', edit_guest_path(@guest) %> |
-<%= link_to 'Back', guests_path %>
+<%= link_to 'Edit', edit_guest_path(@guest), :class => "btn btn-info" %>
 
 </div>
 <div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>

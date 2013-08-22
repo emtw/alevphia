@@ -1,28 +1,35 @@
-<h2>Sign up</h2>
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+
+<h2>Sign up</h2><br />
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :username %><br />
-  <%= f.text_field :username, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="field">
+  <%= f.label :username %><br />
+  <%= f.text_field :username, :autofocus => true %>
+  </div>
   
   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
   </div>
+  
   <div class="field">
-    <%= f.label :middle_names %><br />
-    <%= f.text_field :middle_names %>
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
   </div>
+
   <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :first_name %> <%= f.label :middle_names, :id =>"user-middle-names" %> <%= f.label :last_name, :id => "user-last-name" %><br />
+    <%= f.text_field :first_name %> <%= f.text_field :middle_names %> <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
@@ -30,18 +37,18 @@
   </div>
   <div class="field">
     <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.select :gender, ["", "Male", "Female"] %>
   </div>
   <div class="field">
-    <%= f.label :line_1 %><br />
+    <%= f.label :first_line_of_address %><br />
     <%= f.text_field :line_1 %>
   </div>
   <div class="field">
-    <%= f.label :line_2 %><br />
+    <%= f.label :second_line_of_address %><br />
     <%= f.text_field :line_2 %>
   </div>
   <div class="field">
-    <%= f.label :line_3 %><br />
+    <%= f.label :third_line_of_address %><br />
     <%= f.text_field :line_3 %>
   </div>
   <div class="field">
@@ -50,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label :county %><br />
-    <%= f.text_field :county %>
+    <%= f.collection_select :county, COUNTIES, :to_s, :titleize, {:prompt => true} %>
   </div>
   <div class="field">
     <%= f.label :postcode %><br />
@@ -61,7 +68,14 @@
     <%= f.text_field :contact_number %>
   </div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div class="field">
+  <%= f.submit "Sign up", :class => "btn btn-success" %>
+  </div>
 <% end %>
-
+<br />
 <%= render "users/shared/links" %>
+
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+
+</div>

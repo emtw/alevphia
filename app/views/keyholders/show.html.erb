@@ -10,6 +10,11 @@
 </p>
 
 <p>
+  <b>Email:</b>
+  <%= @keyholder.email %>
+</p>
+
+<p>
   <b>First name:</b>
   <%= @keyholder.first_name %>
 </p>
@@ -29,16 +34,8 @@
   <%= @keyholder.postcode %>
 </p>
 
-<p>
-  <b>Keyholder:</b>
-  <%= @keyholder.keyholder %>
-</p>
 
-<%= link_to 'Destroy', @keyholder, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-<%= link_to 'Edit', edit_keyholder_path(@keyholder) %> |
-<%= link_to 'Back', keyholders_path %>
+<%= link_to 'Edit', edit_keyholder_path(@keyholder), :class => "btn btn-info" %>
 
 </div>
 <div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>

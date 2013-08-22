@@ -2,7 +2,6 @@
 	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
 	<div id="form-pref-content">
 		<h1>Funeral Preferences</h1>
-		<br />
 		
 <p>
   <b>Funeral preference:</b>
@@ -19,44 +18,44 @@
 <% if @funeral.funeral_pref == "Burial" %>
 <p>
   <b>Burial location:</b>
-  <%= @funeral.burial_location %>
+  <%= h(@funeral.burial_location).gsub(/\n/, '<br />').html_safe %>
 </p>
 <% end %>
 
 <% if @funeral.funeral_pref == "Cremation" %>
 <p>
   <b>Ashes location:</b>
-  <%= @funeral.ashes_location %>
+  <%= h(@funeral.ashes_location).gsub(/\n/, '<br />').html_safe %>
 </p>
 <% end %>
 
 <p>
-  <b>Casket preference:</b>
-  <%= @funeral.casket_pref %>
+  <b>Casket or urn preference:</b>
+  <%= h(@funeral.casket_pref).gsub(/\n/, '<br />').html_safe %>
 </p>
 <p>
   <b>Service location:</b>
-  <%= @funeral.service_location %>
+  <%= h(@funeral.service_location).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
-  <b>Hymns pref:</b>
-  <%= @funeral.songs_pref %>
+  <b>Hymns or special songs:</b>
+  <%= h(@funeral.songs_pref).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
   <b>Readings:</b>
-  <%= @funeral.readings %>
+  <%= h(@funeral.readings).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
   <b>Speakers:</b>
-  <%= @funeral.speakers %>
+  <%= h(@funeral.speakers).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
   <b>Final words:</b>
-  <%= @funeral.final_words %>
+  <%= h(@funeral.final_words).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
@@ -76,17 +75,17 @@
 
 <p>
   <b>Wake:</b>
-  <%= @funeral.wake %>
+  <%= h(@funeral.wake).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
   <b>Epitaph:</b>
-  <%= @funeral.epitaph %>
+  <%= h(@funeral.epitaph).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <p>
   <b>Additional Requirements:</b>
-  <%= @funeral.additional_reqs %>
+  <%= h(@funeral.additional_reqs).gsub(/\n/, '<br />').html_safe %>
 </p>
 
 <% if can? :update, @funeral %>

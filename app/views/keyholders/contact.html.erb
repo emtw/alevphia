@@ -16,9 +16,16 @@
 
 <p>
   <b>Email:</b>
+  <% if @keyholder.email.present? %>
   <%= @keyholder.email %>
+  <% else %>
+  <i>No email address has been given</i>
+  <% end %>
 </p>
 
+<% if @keyholder.email.present? %>
+<a href="mailto:<%= @keyholder.email %>?Subject=Forgot%20Not%20query" target="_top" class="btn btn-info">Email Keyholder</a>
+<% end %>
 </div>
 <div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
 
