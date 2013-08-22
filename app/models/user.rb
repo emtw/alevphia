@@ -14,4 +14,32 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :timeline
   has_many :events, through: :timeline, dependent: :destroy
   
+  validates :username, :length => { :minimum => 4, :maximum => 30 }, :presence => true, :uniqueness => true, :username_format => true
+  validates :first_name, :length => { :minimum => 2, :maximum => 40 }, :presence => true, :name_format => true
+  validates :last_name, :length => { :minimum => 2, :maximum => 40 }, :presence => true, :name_format => true
+  validates :email, :presence => true, :email_format => true
+  validate :at_least_18
+  validates :date_of_birth, :presence => true
+  validates :gender, :inclusion => { :in => ["", "Male", "Female"] }
+  validates :line_1, :presence => true
+  validates :town, :presence => true
+  validates :county, :inclusion => { :in => COUNTIES }
+  validates :postcode, :presence => true, :postcode_format => true
+  validates :password, :presence => true,
+                       :confirmation => true,
+                       :password_format => true,
+                       :on => :create
+  validates :password, :confirmation => true,
+                       :password_format => true,
+                       :allow_blank => true,
+                       :on => :update
+  
+  
+  def at_least_18
+    if self.date_of_birth
+      errors.add(:date_of_birth, "You must be 18 years or older to use this service.") if
+      self.date_of_birth > 18.years.ago.to_date
+    end
+  end
+  
 end

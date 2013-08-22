@@ -28,6 +28,15 @@ h3{
   font-family:'Euphoria Script', cursive;
   font-size: 27px !important;
 }
+#error_explanation {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  h2{
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size:16px !important;
+  }
+}
 #logo-area{
   height:200px;
   width:900px;
@@ -132,21 +141,9 @@ h3{
   #user_gender, #user_county {
     width:315px;
   }
-  #user-middle-names{
-    margin-left:87px;
-  }
-  #user-last-name {
-    margin-left:114px;
-  }
-  #user_first_name {
-    width:150px;
-  } 
-  #user_middle_names, #user_last_name {
-    width:200px;
-  }
   label {
   display: inline-block;
-}
+  }
 
 }
 select,
@@ -1120,5 +1117,8 @@ input[type="submit"].btn.btn-mini {
   font-style:italic;
 }
 #key_pw{
+  display:none;
+}
+#user_pw{
   display:none;
 }
