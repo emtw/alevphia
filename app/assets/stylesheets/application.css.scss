@@ -129,13 +129,13 @@ h3{
   select, input[type="text"], textarea, input[type="email"], input[type="password"] {
     margin-top:10px;
   }
-  #user_date_of_birth_3i {
+  #user_date_of_birth_3i, #event_start_date_3i {
     width:80px;
   }
-  #user_date_of_birth_2i {
+  #user_date_of_birth_2i, #event_start_date_2i {
     width:125px;
   }
-  #user_date_of_birth_1i {
+  #user_date_of_birth_1i, #event_start_date_1i {
     width:100px;
   }
   #user_gender, #user_county {
@@ -1121,4 +1121,10 @@ input[type="submit"].btn.btn-mini {
 }
 #user_pw{
   display:none;
+}
+#new-event {
+  width:914px;
+}
+#events-forms{
+  margin-left:-50px;
 }
