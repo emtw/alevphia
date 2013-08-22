@@ -6,19 +6,19 @@
 <br />
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<span><i>Required fields are marked with a *</i></span>
   <div class="field">
-  <%= f.label :username %><br />
+  <%= f.label :username %><%= mark_required(@guest, :username) %><br />
   <%= f.text_field :username, :autofocus => true %>
   </div>
 
   <div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password %><%= mark_required(@guest, :password) %><br />
   <%= f.password_field :password %>
   </div>
 
   <div class="field">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label :password_confirmation %>*<br />
   <%= f.password_field :password_confirmation %>
   </div>
 

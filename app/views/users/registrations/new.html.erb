@@ -6,41 +6,41 @@
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<span><i>Required fields are marked with a *</i></span>
   <div class="field">
-  <%= f.label :username %><br />
+  <%= f.label :username %><%= mark_required(@user, :username) %><br />
   <%= f.text_field :username, :autofocus => true %>
   </div>
   
   <div class="field">
-  <%= f.label :email %><br />
+  <%= f.label :email %><%= mark_required(@user, :email) %><br />
   <%= f.email_field :email %>
   </div>
   
   <div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password %><%= mark_required(@user, :password) %><br />
   <%= f.password_field :password %>
   </div>
 
   <div class="field">
-  <%= f.label :password_confirmation %><br />
+  <%= f.label :password_confirmation %>*<br />
   <%= f.password_field :password_confirmation %>
   </div>
   
   <div class="field">
-    <%= f.label :first_name %> <%= f.label :middle_names, :id =>"user-middle-names" %> <%= f.label :last_name, :id => "user-last-name" %><br />
+    <%= f.label :first_name %><%= mark_required(@user, :first_name) %> <%= f.label :middle_names, :id =>"user-middle-names" %> <%= f.label :last_name, :id => "user-last-name" %><%= mark_required(@user, :last_name) %><br />
     <%= f.text_field :first_name %> <%= f.text_field :middle_names %> <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br />
+    <%= f.label :date_of_birth %><%= mark_required(@user, :date_of_birth) %><br />
     <%= f.date_select :date_of_birth, :order => [:day, :month, :year], start_year: 1900, end_year: Time.now.year - 17, default: 40.years.ago %>
   </div>
   <div class="field">
-    <%= f.label :gender %><br />
+    <%= f.label :gender %><%= mark_required(@user, :gender) %><br />
     <%= f.select :gender, ["", "Male", "Female"] %>
   </div>
   <div class="field">
-    <%= f.label :first_line_of_address %><br />
+    <%= f.label :first_line_of_address %><%= mark_required(@user, :line_1) %><br />
     <%= f.text_field :line_1 %>
   </div>
   <div class="field">
@@ -52,19 +52,19 @@
     <%= f.text_field :line_3 %>
   </div>
   <div class="field">
-    <%= f.label :town %><br />
+    <%= f.label :town %><%= mark_required(@user, :town) %><br />
     <%= f.text_field :town %>
   </div>
   <div class="field">
-    <%= f.label :county %><br />
+    <%= f.label :county %><%= mark_required(@user, :county) %><br />
     <%= f.collection_select :county, COUNTIES, :to_s, :titleize, {:prompt => true} %>
   </div>
   <div class="field">
-    <%= f.label :postcode %><br />
+    <%= f.label :postcode %><%= mark_required(@user, :postcode) %><br />
     <%= f.text_field :postcode %>
   </div>
   <div class="field">
-    <%= f.label :contact_number %><br />
+    <%= f.label :contact_number %><%= mark_required(@user, :contact_number) %><br />
     <%= f.text_field :contact_number %>
   </div>
 
