@@ -27,7 +27,7 @@
 			    Signed in as <%= current_keyholder.username %>. Not you?
 			    <%= link_to "Sign out", destroy_keyholder_session_path, :method => :delete %>
 			  <% else %>
-			    <%= link_to "Sign up", new_keyholder_registration_path %> or <%= link_to "sign in", new_keyholder_session_path %> as a Keyholder.
+			    <%= link_to "Sign in", new_keyholder_session_path %> as a Keyholder.
 			  <% end %>
 			</li>
 			<br />
@@ -36,7 +36,7 @@
 			    Signed in as <%= current_guest.username %>. Not you?
 			    <%= link_to "Sign out", destroy_guest_session_path, :method => :delete %>
 			  <% else %>
-			    <%= link_to "Sign up", new_guest_registration_path %> or <%= link_to "sign in", new_guest_session_path %> as a Guest.
+			    <%= link_to "Sign in", new_guest_session_path %> as a Guest.
 			  <% end %>
 			</li>
 		</ul>

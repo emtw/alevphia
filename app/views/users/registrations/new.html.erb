@@ -28,8 +28,16 @@
   </div>
   
   <div class="field">
-    <%= f.label :first_name %><%= mark_required(@user, :first_name) %> <%= f.label :middle_names, :id =>"user-middle-names" %> <%= f.label :last_name, :id => "user-last-name" %><%= mark_required(@user, :last_name) %><br />
-    <%= f.text_field :first_name %> <%= f.text_field :middle_names %> <%= f.text_field :last_name %>
+    <%= f.label :first_name %><%= mark_required(@user, :first_name) %><br />
+    <%= f.text_field :first_name %>
+  </div>  
+  <div class="field">  
+     <%= f.label :middle_names %><br />
+     <%= f.text_field :middle_names %>
+  </div>
+  <div class="fields">
+  <%= f.label :last_name %><%= mark_required(@user, :last_name) %><br />
+  <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><%= mark_required(@user, :date_of_birth) %><br />
