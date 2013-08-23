@@ -19,11 +19,11 @@
 
 <% events.each do |event| %>
   <tr>
-    <td><%= event.start_date.strftime("%d/%m/%Y") %></td>
-    <td><%= event.headline.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td><% if event.start_date.blank? %>&nbsp;<% else %><%= event.start_date.strftime("%d/%m/%Y") %><% end %></td>
+    <td><% if event.headline.blank? %>&nbsp;<% else %><%= event.headline.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.text.blank? %>&nbsp;<% else %><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.media.blank? %>&nbsp;<% else %><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.caption.blank? %>&nbsp;<% else %><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
     <td><%= button_to 'Edit', edit_event_path(event), :method => "get", :class => "btn btn-info btn-mini", :remote =>true %></td>
   </tr>
 <% end %>

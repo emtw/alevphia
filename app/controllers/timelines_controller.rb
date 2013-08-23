@@ -14,6 +14,14 @@ class TimelinesController < ApplicationController
   # GET /timelines/1
   # GET /timelines/1.json
   def show
+    if @timeline.events.blank?
+        @event = Event.new(params[:event])
+        @event.timeline_id = @access_user.timeline.id
+        @event.start_date = @access_user.date_of_birth
+        @event.headline = @access_user.first_name + " was born"
+        @event.text = "This is the day that " + @access_user.first_name + " was born"
+        @event.save!
+    end
 
     respond_to do |format|
       format.html # show.html.erb

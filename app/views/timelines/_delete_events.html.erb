@@ -19,11 +19,11 @@
 
 <% events.each do |event| %>
   <tr>
-    <td><%= event.start_date.strftime("%d/%m/%Y") %></td>
-    <td title="<%= event.headline %>"><%= event.headline.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td title="<%= event.text %>"><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td title="<%= event.media %>"><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
-    <td title="<%= event.caption %>"><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %></td>
+    <td><% if event.start_date.blank? %>&nbsp;<% else %><%= event.start_date.strftime("%d/%m/%Y") %><% end %></td>
+    <td><% if event.headline.blank? %>&nbsp;<% else %><%= event.headline.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.text.blank? %>&nbsp;<% else %><%= event.text.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.media.blank? %>&nbsp;<% else %><%= event.media.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if event.caption.blank? %>&nbsp;<% else %><%= event.caption.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
     <td><%= button_to 'Delete', event, confirm: "Are you sure you want to remove this event?\nOnce deleted, the event cannot be retrieved again.",
      method: :delete, :class => "btn btn-danger btn-mini", :update => "notice", :remote => true %></td>
   </tr>
