@@ -1,1 +1,6 @@
-$('#events-forms-edit').html('<%= escape_javascript( render :partial => "eventform", :locals => { :event => @event } ) %>');
+$('#edit-events').hide();
+$('#events-forms-edit').html('<%= escape_javascript( render :partial => "eventform", :locals => { :event => @event } ) %>').slideDown(300, function(){
+	$('html, body').animate({
+			scrollTop: $(document).height()-$(window).height()},100,"linear"
+			);
+	});

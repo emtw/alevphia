@@ -1,5 +1,9 @@
+
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
 <br />
-<h3>Edit the selected event:</h3>
+<h3>Edit the selected event <% if event.headline.blank? %>&nbsp;<% else %>(<%= event.headline.gsub(/^(.{20}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %>):<% end %></h3>
 
 <%= form_for(@event, :remote => true) do |f| %>
   <% if @event.errors.any? %>
@@ -34,7 +38,11 @@
     <%= f.label :caption %><br />
     <%= f.text_area :caption, :size => "45x4" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions field">
+    <%= f.submit "Update Event", :class => "btn btn-success" %>
   </div>
 <% end %>
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+
+</div>
