@@ -42,4 +42,8 @@ class User < ActiveRecord::Base
     end
   end
   
+  def postcode=(value)
+    write_attribute(:postcode, value.upcase)
+  end
+  
 end

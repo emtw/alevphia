@@ -16,7 +16,7 @@ class Ability
         key.user_id == model.id
       end
       if model.guest.nil?
-        can :create, Keyholder
+        can :create, Guest
       end
       can [:read, :update, :destroy], Guest do |guest|
         guest.user_id == model.id
@@ -46,7 +46,7 @@ class Ability
       if model.user.guest.nil?
         can :create, Guest
       end
-      can [:read, :update, :destroy], Guest do |guest|
+      can [:read, :update], Guest do |guest|
         guest.user_id == model.user_id
       end
       
