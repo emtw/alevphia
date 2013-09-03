@@ -11,8 +11,16 @@
 			        timeline_path(current_guest.user.timeline) : 
 			        new_timeline_path %></li>
 			    <li class="btn btn-primary"><a href="#">Order of Service</a></li>
-			    <li class="btn btn-primary"><a href="#">Message Board</a></li>
+			    <% if current_guest.user.message_board.present? %>
+			    <li class="btn btn-primary"><br /><%= link_to 'Message Board', message_board_path(current_guest.user.message_board) %></li>
+			    <% else %>
+			    <li class="btn disabled"><a href="#">Message Board</a></li>
+			    <% end %>
+			    <% if current_guest.user.keyholder.present? %>
 			    <li class="btn btn-info"><br /><%= link_to 'Keyholder Details',
 			    	:controller => "/keyholders", :id => current_guest.user.keyholder.id, :action => "contact" %></li>
+			    <% else %>
+			    <li class="btn disabled"><br />Keyholder Details</li>
+			    <% end %>
 			</ul>
 		</div>

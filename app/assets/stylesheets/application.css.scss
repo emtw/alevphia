@@ -1345,3 +1345,108 @@ input[type="submit"].btn.btn-mini {
 #events-forms-edit {
   display:none;
 }
+#message-board-shadow-top, #message-board-shadow-bottom {
+  img{
+    width:866px;
+  }
+}
+#message-board-shadow-top {
+  margin-bottom:-15px;
+}
+#message-board-shadow-bottom {
+  margin-top:-15px;
+}
+#message-board-content {
+  background-color:#f6f6f6;
+  padding:10px 20px;
+}
+#new-message {
+  display:none;
+  margin-top:-20px;
+  margin-left:20px;
+  textarea {
+    resize:none;
+    border:none;
+    background-color:#ffc;
+    width:232px;
+    height:100px;
+    font-family: 'Marck Script', cursive !important;  
+    font-size:20px;
+    line-height:28px;  
+    padding:10px;
+    margin-top:-10px;
+    margin-bottom:0px;
+  }
+}
+.new-message-top{
+    width:242px;
+    background-color:#feff9e;
+    padding:5px;
+    padding-bottom:10px;
+    margin-top:-7px;
+    color:#000 !important;
+}
+.new-message-post{
+    -webkit-box-shadow: 0px 5px 9px 0px #888;
+    box-shadow: 0px 5px 9px 0px #888;  
+    width:252px;
+}
+
+.item {
+  width: 252px;
+  list-style-type:none;
+  margin:10px;
+  text-decoration:none;    
+  background:#ffc;  
+  display:block;
+  padding-top:7px;
+  -webkit-box-shadow: 0px 5px 9px 0px #888;
+  box-shadow: 0px 5px 9px 0px #888;  
+  .message_content{
+    font-family: 'Marck Script', cursive !important;
+    font-size:20px;
+    line-height:28px;  
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .message_from {
+    width:242px;
+    background-color:#feff9e;
+    padding:5px;
+    padding-bottom:10px;
+    margin-top:-7px;
+    color:#000 !important;
+  }
+
+}
+.item:hover, .item:focus{  
+    -webkit-transform: scale(1.25);  
+    -moz-transform: scale(1.25);  
+    -o-transform: scale(1.25);  
+    position:relative;  
+    z-index:5;  
+}
+.message-top{
+  cursor:default;
+  a:hover{
+    text-decoration:none;
+  }
+}
+.message-top:hover{
+  a{
+  color:#f00;
+  }
+}
+.delete-message a{
+  color:#feff9e;
+  float:right;
+  position:relative;
+  top:-35px;
+  right:10px;
+}
+.delete-message:hover{
+  cursor:pointer;
+  a{
+    font-weight:bold;
+  }
+}

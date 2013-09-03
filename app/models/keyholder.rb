@@ -21,4 +21,10 @@ class Keyholder < ActiveRecord::Base
                        :password_format => true,
                        :allow_blank => true,
                        :on => :update
+                       
+  def postcode=(value)
+    write_attribute(:postcode, value.upcase)
+  end
+                       
+                       
 end

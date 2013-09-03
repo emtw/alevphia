@@ -1,0 +1,7 @@
+$('.notice-message').hide();
+$('#new-message').html('<%= escape_javascript( render :partial => "/message_boards/new_message", :locals => { :message => Message.new(:message_board_id=>@access_user.message_board.id) }, :remote => true ) %>');
+$('#new-message').hide();
+$('#add-message').show();
+$('.notice-message').html("<p>Message was successfully added.</p>");
+$('.notice-message').show(300);
+$('#show-message-board').html('<%= escape_javascript( render :partial => "/message_boards/show_message_board", :locals => { :messages => @access_user.messages }, :remote => true ) %>');

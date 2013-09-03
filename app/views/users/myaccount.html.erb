@@ -14,7 +14,10 @@
         	timeline_path(current_user.timeline) : 
         	new_timeline_path %></li>
         <li><a href="#">Order of Service</a></li>
-        <li><a href="#">Message Board</a></li>
+        <li><%= link_to 'Message Board', 
+			current_user.message_board.present? ? 
+			message_board_path(current_user.message_board) : 
+			new_message_board_path %></li>
         <% if current_user.keyholder.present? %>
         	<li><%= link_to 'Edit Keyholder', keyholder_path(current_user.keyholder) %></li>
         <% else %>
@@ -74,7 +77,17 @@
 	    	<li>Timeline event added - <%= image_tag 'red-cross.png', :alt => 'No' %></li>	    	
 	    	<% end %>
 	    	<li>Order of Service - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
-	    	<li>Message Board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% if current_user.message_board.present? %>
+	    	<li>Message board set up - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    		<% if current_user.message_board.messages.present? %>
+	    		<li>Message added to message board - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    		<% else %>
+	    		<li>Message added to message board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    		<% end %>
+	    	<% else %>
+	    	<li>Message board set up - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<li>Message added to message board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>	    	
+	    	<% end %>
 	    	<% if current_user.keyholder.present? %>
 	    	<li>Keyholder added - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
 	    	<% else %>

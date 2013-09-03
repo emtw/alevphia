@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :message_board_id %><br />
-    <%= f.number_field :message_board_id %>
-  </div>
+  <% if guest_signed_in? %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <% end %>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>

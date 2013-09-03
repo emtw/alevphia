@@ -1,8 +1,8 @@
 class MessageBoardsController < ApplicationController
+  load_and_authorize_resource
   # GET /message_boards
   # GET /message_boards.json
   def index
-    @message_boards = MessageBoard.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,6 @@ class MessageBoardsController < ApplicationController
   # GET /message_boards/1
   # GET /message_boards/1.json
   def show
-    @message_board = MessageBoard.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +23,6 @@ class MessageBoardsController < ApplicationController
   # GET /message_boards/new
   # GET /message_boards/new.json
   def new
-    @message_board = MessageBoard.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +32,11 @@ class MessageBoardsController < ApplicationController
 
   # GET /message_boards/1/edit
   def edit
-    @message_board = MessageBoard.find(params[:id])
   end
 
   # POST /message_boards
   # POST /message_boards.json
   def create
-    @message_board = MessageBoard.new(params[:message_board])
 
     respond_to do |format|
       if @message_board.save
@@ -56,7 +52,6 @@ class MessageBoardsController < ApplicationController
   # PUT /message_boards/1
   # PUT /message_boards/1.json
   def update
-    @message_board = MessageBoard.find(params[:id])
 
     respond_to do |format|
       if @message_board.update_attributes(params[:message_board])
@@ -72,7 +67,6 @@ class MessageBoardsController < ApplicationController
   # DELETE /message_boards/1
   # DELETE /message_boards/1.json
   def destroy
-    @message_board = MessageBoard.find(params[:id])
     @message_board.destroy
 
     respond_to do |format|

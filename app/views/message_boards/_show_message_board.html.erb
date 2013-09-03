@@ -1,0 +1,25 @@
+<script>
+  $(document).ready(function(){
+  	var $container = $('#container');
+	// initialize
+	$container.masonry({
+	  itemSelector: '.item'
+	});
+  });	
+</script>
+<div id="container">
+	<ul>
+		<% messages.each do |message| %>
+		  <li class="item">
+		  	<div class ="message-top">
+		  	<p class="message_from"><%= message.name %>:</p>
+			<% if can? :destroy, message %>
+			<span class="delete-message"><%= link_to 'X', message, confirm: "Are you sure you want to remove this message?\nOnce deleted, the message cannot be retrieved again.",
+     		method: :delete, :update => "notice", :remote => true %></span>
+     		<% end %>
+		  	</div>
+		  	<p class="message_content"><%= h(message.content).gsub(/\n/, '<br />').html_safe %></p>
+		  </li>
+		<% end %>
+	</ul>
+</div>

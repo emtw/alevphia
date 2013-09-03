@@ -26,6 +26,10 @@ class Ability
       can :manage, Event do |event|
         event.timeline.user_id == model.id
       end
+      can :manage, MessageBoard, :user_id => model.id
+      can :manage, Message do |message|
+        message.message_board.user_id == model.id
+      end
       
     end
     
@@ -42,6 +46,12 @@ class Ability
       end
       can :manage, Event do |event|
         event.timeline.user_id == model.user_id
+      end
+      can :read, MessageBoard do |board|
+        board.user_id == model.user_id
+      end
+      can [:create, :destroy, :read], Message do |message|
+        message.message_board.user_id == model.user_id
       end
       if model.user.guest.nil?
         can :create, Guest
@@ -65,6 +75,12 @@ class Ability
       can [:create, :read], Event do |event|
         event.timeline.user_id == model.user_id
       end
+      can :read, MessageBoard do |board|
+        board.user_id == model.user_id
+      end
+      can [:create, :read], Message do |message|
+        message.message_board.user_id == model.user_id
+      end
       can :contact, Keyholder do |keyholder|
         keyholder.user_id == model.user_id
       end
@@ -72,7 +88,7 @@ class Ability
     end
         
     can :create, User
-    cannot :index, [User, Keyholder, Guest, Event, Timeline, Funeral]
+    cannot :index, [User, Keyholder, Guest, Event, Timeline, Funeral, MessageBoard, Message]
         
   end
   

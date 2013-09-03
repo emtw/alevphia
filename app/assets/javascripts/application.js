@@ -15,7 +15,11 @@
 //= require bootstrap
 //= require_tree .
 $(document).ready(function() {
-  
+  $('#add-message').click(function(){
+	  $('#add-message').hide();
+	  $('#new-message').slideDown();
+  });
+	  
   $('#funeral_funeral_pref').focus(function(){
   	$('#ttfuneral_pref').show();
   });

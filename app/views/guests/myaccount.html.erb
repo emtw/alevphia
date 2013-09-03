@@ -42,7 +42,12 @@
 			</li>
 			<li><%= link_to 'View timeline', timeline_path(current_guest.user.timeline) %> and create events</li>
 			<li>Placeholder for Order of Service</li>
-			<li>Placeholder for Message Board</li>
+			<li><% if current_guest.user.message_board.present? %>
+				<%= link_to 'View', message_board_path(current_guest.user.message_board) %> the message board
+				<% else %>
+				The message board has not yet been set up - <%= link_to 'Contact your keyholder', :controller => "/keyholders", :id => current_guest.user.keyholder.id, :action => "contact" %> to request creation
+				<% end %>
+			</li>
 			<li><%= link_to 'View', keyholder_path(current_guest.user.keyholder) %> the keyholder's details</li>
 						
 		</ul>
@@ -65,11 +70,10 @@
 	    	<li>Timeline event added - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
 	    	<% end %>
 	    	<li>Order of Service - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
-	    	<li>Message Board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
-	    	<% if current_guest.user.guest.present? %>
-	    	<li>Guest account created - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    	<% if current_guest.user.message_board.present? %>
+	    	<li>Message board set up - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
 	    	<% else %>
-	    	<li>Guest account created - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<li>Message board set up - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
 	    	<% end %>
 	    </ul>
     </div>

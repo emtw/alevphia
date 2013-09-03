@@ -1,15 +1,20 @@
-<p id="notice"><%= notice %></p>
+<%= javascript_include_tag "masonry.pkgd.min.js" %>
 
-<p>
-  <b>User:</b>
-  <%= @message_board.user_id %>
-</p>
+<div class="notice-message">&nbsp;</div>
 
-<p>
-  <b>Message:</b>
-  <%= @message_board.message_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_message_board_path(@message_board) %> |
-<%= link_to 'Back', message_boards_path %>
+<div class="content-box">
+	<div id="message-board-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="message-board-content">
+		<h1><%= @access_user.first_name.capitalize %>'s Message Board</h1>
+		<div id="add-message" class="btn btn-success">Add a Message</div><br /><br />
+		<div id="new-message">
+			<%= render :partial => "new_message", :locals => { :message => Message.new(:message_board_id=>@message_board.id) }, :remote => true %>
+		</div>
+		
+		<div id="show-message-board">
+			<%= render :partial => "show_message_board", :locals => { :messages => @access_user.messages }, :remote => true %>	
+		</div>
+		
+	</div>
+	<div id="message-board-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>

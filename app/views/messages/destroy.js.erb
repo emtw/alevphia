@@ -1,0 +1,4 @@
+$('.notice-message').hide();
+$('.notice-message').html("<p>Message was successfully deleted.</p>");
+$('.notice-message').show(300);
+$('#show-message-board').html('<%= escape_javascript( render :partial => "/message_boards/show_message_board", :locals => { :messages => @access_user.messages }, :remote => true ) %>');

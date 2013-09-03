@@ -14,7 +14,11 @@
 			<%= link_to 'Timeline', new_timeline_path %>
 			<% end %></li>
         <li><a href="#">Order of Service</a></li>
-        <li><a href="#">Message Board</a></li>
+        <li><% if current_keyholder.user.message_board.present? %>
+			<%= link_to 'Message Board', message_board_path(current_keyholder.user.message_board) %>
+			<% else %>
+			<%= link_to 'Message Board', new_message_board_path %>
+			<% end %></li>
         <% if current_keyholder.user.guest.present? %>
         	<li><%= link_to 'Edit Guest', guest_path(current_keyholder.user.guest) %></li>
         <% else %>
@@ -52,7 +56,12 @@
 				<%= link_to 'Create timeline', new_timeline_path %>
 				<% end %></li>
 			<li>Placeholder for Order of Service</li>
-			<li>Placeholder for Message Board</li>
+	    	<li><% if current_keyholder.user.message_board.present? %>
+				<%= link_to 'View', message_board_path(current_keyholder.user.message_board) %> the message board
+				<% else %>
+				<%= link_to 'Create the message board', new_message_board_path %>
+				<% end %>
+			</li>
 			<li><%= link_to 'View and edit', keyholder_path(current_keyholder) %> your details</li>
 			<li><% if current_keyholder.user.guest.present? %>
 				<%= link_to 'View and edit', guest_path(current_keyholder.user.guest) %> the guest account
@@ -82,7 +91,11 @@
 	    	<li>Timeline event added - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
 	    	<% end %>
 	    	<li>Order of Service - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
-	    	<li>Message Board - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% if current_keyholder.user.message_board.present? %>
+	    	<li>Message board set up - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
+	    	<% else %>
+	    	<li>Message board set up - <%= image_tag 'red-cross.png', :alt => 'No' %></li>
+	    	<% end %>
 	    	<% if current_keyholder.user.guest.present? %>
 	    	<li>Guest account created - <%= image_tag 'green-tick.png', :alt => 'Yes' %></li>
 	    	<% else %>
