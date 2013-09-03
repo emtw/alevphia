@@ -1,0 +1,25 @@
+<h1>Listing message_boards</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @message_boards.each do |message_board| %>
+  <tr>
+    <td><%= message_board.user_id %></td>
+    <td><%= message_board.message_id %></td>
+    <td><%= link_to 'Show', message_board %></td>
+    <td><%= link_to 'Edit', edit_message_board_path(message_board) %></td>
+    <td><%= link_to 'Destroy', message_board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Message board', new_message_board_path %>
