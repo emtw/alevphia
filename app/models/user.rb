@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_one :timeline, dependent: :destroy
   accepts_nested_attributes_for :timeline
   has_many :events, through: :timeline, dependent: :destroy
+  has_one :message_board
+  has_many :messages, through: :message_board, dependent: :destroy
   
   validates :username, :length => { :minimum => 4, :maximum => 30 }, :presence => true, :uniqueness => true, :username_format => true
   validates :first_name, :length => { :minimum => 2, :maximum => 40 }, :presence => true, :name_format => true

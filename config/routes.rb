@@ -1,5 +1,11 @@
 ForgotNotIv::Application.routes.draw do
   
+  resources :messages
+
+
+  resources :message_boards
+
+
   resources :events do
     member do
       get 'myevents'
