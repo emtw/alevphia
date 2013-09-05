@@ -6,6 +6,9 @@
 	<div id="message-board-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
 	<div id="message-board-content">
 		<h1><%= @access_user.first_name.capitalize %>'s Message Board</h1>
+		<div id="first-message">
+			<%= render :partial => "first_message", :remote => true %>
+		</div>
 		<div id="add-message" class="btn btn-success">Add a Message</div><br /><br />
 		<div id="new-message">
 			<%= render :partial => "new_message", :locals => { :message => Message.new(:message_board_id=>@message_board.id) }, :remote => true %>

@@ -1,5 +1,33 @@
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+
+
 <h1>New Message Board</h1>
 
-<%= render 'form' %>
+<p>When the app is complete, you won't see this page. The message board will be automatically created when a user creates a new account. But, as your account was created before the message board function was added, you'll need to set one up now:</p>
 
-<%= link_to 'Back', message_boards_path %>
+<%= form_for(@message_board) do |f| %>
+  <% if @message_board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message_board.errors.count, "error") %> prohibited this message_board from being saved:</h2>
+
+      <ul>
+      <% @message_board.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%=f.hidden_field 'user_id', :value => @access_user.id %>
+
+  <div class="actions">
+    <%= f.submit 'Click here to set up', :class =>"btn btn-success" %>
+  </div>
+<% end %>
+
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+
+</div>
+
