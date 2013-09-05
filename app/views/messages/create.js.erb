@@ -1,4 +1,5 @@
 $('.notice-message').hide();
+$('.notice').hide();
 $('#new-message').html('<%= escape_javascript( render :partial => "/message_boards/new_message", :locals => { :message => Message.new(:message_board_id=>@access_user.message_board.id) }, :remote => true ) %>');
 $('#new-message').hide();
 $('#add-message').show();
