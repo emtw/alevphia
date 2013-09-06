@@ -1,0 +1,4 @@
+$('#edit-photos').hide();
+$('#photos-forms-edit').html('<%= escape_javascript( render :partial => "photoform", :locals => { :photo => @photo } ) %>').slideDown(300, function(){
+	$('html, body').animate({scrollTop:$('#edit-photos-button').offset().top + 60}, 'slow');
+	});

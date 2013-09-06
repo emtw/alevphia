@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gallery_id: 1
+  title: MyString
+  description: MyString
+  uploaded_by: MyString
+  image: MyString
+
+two:
+  gallery_id: 1
+  title: MyString
+  description: MyString
+  uploaded_by: MyString
+  image: MyString

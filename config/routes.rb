@@ -1,4 +1,11 @@
 ForgotNotIv::Application.routes.draw do
+
+
+  resources :photos
+  
+  
+  resources :galleries
+  
   
   resources :messages
 

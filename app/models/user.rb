@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :events, through: :timeline, dependent: :destroy
   has_one :message_board
   has_many :messages, through: :message_board, dependent: :destroy
+  has_many :galleries
+  has_many :photos, through: :galleries, dependent: :destroy
   
   validates :username, :length => { :minimum => 4, :maximum => 30 }, :presence => true, :uniqueness => true, :username_format => true
   validates :first_name, :length => { :minimum => 2, :maximum => 40 }, :presence => true, :name_format => true

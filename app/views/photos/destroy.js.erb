@@ -1,0 +1,5 @@
+$('#delete_photos').html('<%= escape_javascript( render :partial => "/galleries/delete_photos", :locals => { :photos => @gallery.photos } ) %>');
+$('.notice').html("<p>Photo was successfully deleted.</p>");
+$('.notice').show(300);
+$('#show-gallery').html('<%= escape_javascript( render :partial => "/galleries/show_gallery", :locals => { :photos => @gallery.photos } ) %>');
+$('#edit-photos').html('<%= escape_javascript( render :partial => "/galleries/edit_photos", :locals => { :photos => @gallery.photos }, :remote => true ) %>');

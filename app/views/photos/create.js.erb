@@ -1,0 +1,6 @@
+$('#new-photo').html('<%= escape_javascript( render :partial => "/galleries/new_photo", :locals => { :photo => Photo.new(:gallery_id=>@gallery.id) }, :remote => true ) %>');
+$('.notice').html("<p>Photo was successfully added.</p>");
+$('.notice').show(300);
+$('#show-gallery').html('<%= escape_javascript( render :partial => "/galleries/show_gallery", :locals => { :photos => @gallery.photos }, :remote => true ) %>');
+$('#edit-photos').html('<%= escape_javascript( render :partial => "/galleries/edit_photos", :locals => { :photos => @gallery.photos }, :remote => true ) %>');
+$('#delete_photos').html('<%= escape_javascript( render :partial => "/galleries/delete_photos", :locals => { :photos => @gallery.photos } ) %>');

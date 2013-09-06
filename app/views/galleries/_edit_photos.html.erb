@@ -1,0 +1,33 @@
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+<br />
+<h2>Edit your photos</h2><br />
+<h4>Click 'edit' next to the photo that you want to change.</h4>
+
+<table class="table table-hover">
+  <tr>
+  	<thead>
+	    <th>Title</th>
+   	    <th>Description</th>
+        <th>Uploaded by</th>
+        <th>Image</th>
+	    <th></th>
+	</thead>
+  </tr>
+
+<% photos.each do |photo| %>
+  <tr>
+    <td><% if photo.title.blank? %>&nbsp;<% else %><%= photo.title.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if photo.description.blank? %>&nbsp;<% else %><%= photo.description.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if photo.uploaded_by.blank? %>&nbsp;<% else %><%= photo.uploaded_by.gsub(/^(.{50}[\w.]*)(.*)/) {$2.empty? ? $1 : $1 + '...'} %><% end %></td>
+    <td><% if photo.image_url.to_s.blank? %>&nbsp;<% else %><%= photo.image_url.to_s %><% end %></td>
+    <td><%= button_to 'Edit', edit_photo_path(photo), :method => "get", :class => "btn btn-info btn-mini", :remote =>true %></td>
+  </tr>
+<% end %>
+</table>
+
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+
+</div>

@@ -7,6 +7,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 gem 'json_builder'
+gem 'carrierwave'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

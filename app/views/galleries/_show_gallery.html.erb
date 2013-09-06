@@ -1,0 +1,31 @@
+<script>
+  $(document).ready(function(){
+  	var $container = $('#polaroids-container');
+	// initialize
+	$container.masonry({
+	  itemSelector: '.polaroids-item'
+	});
+  });	
+</script>
+
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+	
+	<div id="polaroids-container">
+		<ul class="polaroids">
+			<% photos.each do |photo| %>
+				<li class="polaroids-item">
+					<%= image_tag photo.image_url.to_s %>
+					<span>
+						<b><%= photo.title %></b><% if photo.description.present? %><br />
+							<i><%= photo.description %></i><% end %>
+					</span>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+	</div>
+	<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+</div>

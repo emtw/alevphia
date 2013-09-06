@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_of_service_id: 1
+  content: MyText
+
+two:
+  order_of_service_id: 1
+  content: MyText

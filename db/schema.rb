@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903122907) do
+ActiveRecord::Schema.define(:version => 20130905135628) do
 
   create_table "events", :force => true do |t|
     t.integer  "timeline_id"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20130903122907) do
     t.integer  "user_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "photo_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   create_table "guests", :force => true do |t|
@@ -108,6 +116,16 @@ ActiveRecord::Schema.define(:version => 20130903122907) do
     t.text     "content"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "gallery_id"
+    t.string   "title"
+    t.string   "description"
+    t.string   "uploaded_by"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "timelines", :force => true do |t|

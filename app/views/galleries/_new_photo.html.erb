@@ -1,0 +1,48 @@
+<div class="content-box">
+	<div id="form-shadow-top"><%= image_tag 'shadow-top.jpg', :alt => 'shadow' %></div>
+	<div id="form-pref-content">
+
+<h2>Add a photo</h2><br />
+<h4>Fill in the form and click 'Add Photo' to add a new photo to the gallery.</h4>
+
+<%= form_for(photo, :remote => true, :html => { :multipart => true }) do |f| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being added:</h2>
+
+      <ul>
+      <% photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  	<%=f.hidden_field 'gallery_id', :value => @gallery.id %>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %><br />
+    <%= f.label :remote_image_url, "or image URL" %>
+    <%= f.text_field :remote_image_url %>
+  </div>
+  <div class="field">
+    <%= f.label :photo_title %><br />
+    <%= f.text_field :title, :size => 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, :size => 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :uploaded_by %><br />
+    <%= f.text_field :uploaded_by, :size => 50 %>
+  </div>
+   
+  <div class="actions field">
+    <%= f.submit 'Add Photo', :class => "btn btn-success", :id => "create-photo"  %>
+  </div>
+<% end %>
+</div>
+<div id="form-shadow-bottom"><%= image_tag 'shadow-bottom.jpg', :alt => 'shadow' %></div>
+
+</div>

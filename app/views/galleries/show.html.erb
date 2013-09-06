@@ -1,0 +1,32 @@
+<%= javascript_include_tag "masonry.pkgd.min.js" %>
+<%= javascript_include_tag "gallery-forms" %>
+
+<div id="show-gallery">
+	<h2><%= @gallery.name %></h2><br />
+<%= render :partial => "show_gallery", :locals => { :photos => @gallery.photos }, :remote => true %>
+</div>
+
+<div class="content-box">
+
+<button id="new-photo-button" class="btn btn-success btn-large">Add Photo</button>
+<button id="edit-photos-button" class="btn btn-info btn-large">Edit Photos</button>
+<button id="delete-photos-button" class="btn btn-danger btn-large">Delete Photos</button>
+
+<br />
+<div id="photos-forms">
+	
+	<div id="new-photo">
+		<%= render :partial => "new_photo", :locals => { :photo => Photo.new(:gallery_id=>@gallery.id) }, :remote => true %>
+	</div>
+	
+	<div id="edit-photos">
+		<%= render :partial => "edit_photos", :locals => { :photos => @gallery.photos }, :remote => true %>
+	</div>
+
+	<div id="delete_photos">
+		<%= render :partial => "delete_photos", :locals => { :photos => @gallery.photos } %>
+	</div>
+</div>
+<div id="photos-forms-edit">&nbsp;</div>
+
+</div>
